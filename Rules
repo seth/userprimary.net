@@ -1,0 +1,54 @@
+#!/usr/bin/env ruby
+
+compile '/posts/' do
+  filter :haml
+  layout 'default'
+end
+
+compile '/posts/*' do
+  filter :bluecloth
+  layout 'default'
+end
+
+compile '/tags/' do
+  filter :haml
+  layout 'default'
+end
+
+compile '/tags/*' do
+  filter :erb
+  layout 'default'
+end
+
+compile '*' do
+  filter :erb
+  layout 'default'
+end
+
+route '*' do
+  item.identifier + 'index.html'
+end
+
+layout '/tag/', :haml
+
+layout '*', :erb
+
+preprocess do
+  require 'set'
+  tags = Set.new
+  items.each do |item|
+    if item[:tags]
+      item[:tags].each { |t| tags << t }
+    end
+  end  
+
+  tags.each do |tag|
+    items << Nanoc3::Item.new("<%= render('tag', :tag => \"#{tag}\") %>",
+                              { :title => "Category: #{tag}"},
+                              "/tags/#{tag}/")
+  end
+  # items << Nanoc3::Item.new("",
+  #                           { :title => "All Tags" },
+  #                           "/tags/")
+  #                           )
+end

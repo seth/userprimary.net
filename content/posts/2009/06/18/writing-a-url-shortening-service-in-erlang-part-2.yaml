@@ -1,0 +1,14 @@
+--- 
+kind: article
+created_at: Thu Jun 18 22:47:33 -0700 2009
+wordpress_id: 193
+title: Writing a URL Shortening Service in Erlang, Part 2
+tags: 
+- programming
+- Erlang
+- couchdb
+- webmachine
+- common_test
+- OTP
+- osx
+wordpress_url: http://userprimary.net/user/?p=193

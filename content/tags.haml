@@ -1,0 +1,6 @@
+%h1 Tags
+
+%ul
+  - @item.children.each do |t|
+    %li
+      = t[:title]

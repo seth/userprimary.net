@@ -1,0 +1,10 @@
+--- 
+kind: article
+created_at: Wed Mar 04 12:10:06 -0800 2009
+wordpress_id: 128
+title: "Two Erlang Finds: Atomic Names and Parameterized Modules"
+tags: 
+- programming
+- Erlang
+- couchdb
+wordpress_url: http://userprimary.net/user/?p=128

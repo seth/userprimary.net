@@ -1,0 +1,7 @@
+<h1><%= @item[:title] %></h1>
+
+<ul>
+  <% items_with_tag(@tag).each do |p| %>
+  <li><%= p[:title] %></li>
+  <% end %>
+</ul>

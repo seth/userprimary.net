@@ -1,0 +1,8 @@
+--- 
+kind: article
+created_at: Sun Aug 10 09:29:23 -0700 2008
+wordpress_id: 66
+title: New sharding support (table fragmentation) in Erlang's Mnesia database?
+tags: 
+- programming
+wordpress_url: http://userprimary.net/user/?p=66

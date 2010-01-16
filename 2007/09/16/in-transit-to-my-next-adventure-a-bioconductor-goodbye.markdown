@@ -1,0 +1,11 @@
+Last Friday marked my last day at <a href="http://fhcrc.org/">The Hutch</a> and the end of my official involvement with the <a href="http://bioconductor.org/">Bioconductor</a> project.  This weekend I am in transit.  On Monday I will land at a stealth-mode startup company, Hypertext Solutions, where a new adventure will begin.  Despite the fact that my new workplace is only four miles from my old office, I feel like I am on a plane heading far away.  Like a trip to someplace you've never been before, it doesn't seem real.  Tomorrow I will arrive, step off the plane, and everything will be different.
+
+I've really enjoyed my time at The Center, which began in 2003 when I took a position working with <a href="http://www.fhcrc.org/science/labs/etzioni/">Ruth Etzioni</a>.  In early 2005 I left Ruth's group to work with <a href="http://gentleman.fhcrc.org/">Robert Gentleman</a> on Bioconductor.  I've overseen almost six Bioconductor releases starting with BioC 1.6 (for R 2.1.0) which was released in March of 2005.  Early next month, BioC 2.1 (for R 2.6.0) will be released.  I'd like to think that I've left the project in a more organized state then when I arrived.  I've certainly learned a lot while working on Bioconductor and have really enjoyed interacting with the ever growing community that surrounds the project.
+
+I should mention that the Gentleman Lab is hiring.  These are great people to work and The Hutch is a great place to work.  Please pass along the following announcement to anyone you think would be interested: <a href="https://stat.ethz.ch/pipermail/bioc-devel/2007-September/001311.html">Robert's job announcement bioc-devel</a>.
+
+For completeness, here's the <a href="http://article.gmane.org/gmane.science.biology.informatics.conductor/14544/">goodbye message</a> I sent to the BioC lists a couple weeks ago.
+
+<img src="http://userprimary.net/user/wp-content/uploads/2007/09/image013.jpg" height="300" width="512" border="1" hspace="4" vspace="4" alt="The Hutch, where I used to work" title="The Hutch, where I used to work" />
+
+<!-- technorati tags start --><p style="text-align:right;font-size:10px;">Technorati Tags: <a href="http://www.technorati.com/tag/Bioconductor" rel="tag">Bioconductor</a></p><!-- technorati tags end -->

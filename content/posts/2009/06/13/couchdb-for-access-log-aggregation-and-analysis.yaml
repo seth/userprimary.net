@@ -1,0 +1,9 @@
+--- 
+kind: article
+created_at: Sat Jun 13 12:58:54 -0700 2009
+wordpress_id: 165
+title: CouchDB for access log aggregation and analysis
+tags: 
+- programming
+- mnesia
+wordpress_url: http://userprimary.net/user/?p=165

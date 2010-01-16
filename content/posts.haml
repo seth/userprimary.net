@@ -1,0 +1,8 @@
+%h1 Userprimary posts
+
+%ul
+  - sorted_articles.each do |post|
+    %li
+      %a{ :href => post.identifier }
+        = post[:title]
+      = " (" + tags_for(post) + ")"

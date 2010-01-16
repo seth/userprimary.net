@@ -1,0 +1,9 @@
+I had a chance to read through Steve Yegge's long post <a href="http://steve-yegge.blogspot.com/2008/10/universal-design-pattern.html">The Universal Design Pattern</a>.  Have you read it?  It's quite long, but worth the time I thought.
+
+The universal design pattern discussed in the post is the Properties Pattern where a simple key/value structure is used as the data model for a programming problem.  A typical API supports getting, setting, deleting, and checking the existence of key/value pairs.  Significant power is exposed by adding a parent pointer to the key/value map to allow inheritance.
+
+An example that was not included, but that strikes me as good evidence for calling this a "universal design pattern" is the <a href="http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-21.html">environment model of evaluation</a> described in <a href="http://mitpress.mit.edu/sicp/full-text/book/book.html">SICP</a>:
+
+<blockquote>An environment is a sequence of frames. Each frame is a table (possibly empty) of bindings, which associate variable names with their corresponding values. (A single frame may contain at most one binding for any variable.) Each frame also has a pointer to its enclosing environment, unless, for the purposes of discussion, the frame is considered to be global. The value of a variable with respect to an environment is the value given by the binding of the variable in the first frame in the environment that contains a binding for that variable. If no frame in the sequence specifies a binding for the variable, then the variable is said to be unbound in the environment.</blockquote>That's all I've got.
+
+<!-- technorati tags start --><p style="text-align:right;font-size:10px;">Technorati Tags: <a href="http://www.technorati.com/tag/programming" rel="tag">programming</a></p><!-- technorati tags end -->
