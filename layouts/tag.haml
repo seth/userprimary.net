@@ -1,7 +1,7 @@
-<h1><%= @item[:title] %></h1>
+<h1><%= @tag_count %> posts tagged <%= @tag_name %></h1>
 
 <ul>
-  <% items_with_tag(@tag).each do |p| %>
+  <% sort_posts_by_date(items_with_tag(@tag_name)).each do |p| %>
   <li><%= p[:title] %></li>
   <% end %>
 </ul>

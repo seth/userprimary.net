@@ -1,6 +1,8 @@
 %h1 Tags
 
 %ul
-  - @item.children.each do |t|
+  - @item.children.sort {|a, b| a[:tag_name] <=> b[:tag_name] }.each do |t|
     %li
-      = t[:title]
+      %a{ :href => t.identifier, :title => "posts tagged #{t[:tag_name]}" }
+        = t[:tag_name]
+      = "(" + t[:tag_count] + ")"

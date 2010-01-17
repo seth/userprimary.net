@@ -16,8 +16,9 @@ compile '/tags/' do
 end
 
 compile '/tags/*' do
-  filter :erb
+  filter :haml
   layout 'default'
+  filter :erb
 end
 
 compile '*' do
@@ -29,22 +30,26 @@ route '*' do
   item.identifier + 'index.html'
 end
 
-layout '/tag/', :haml
+layout '/tag/', :erb
+layout '/tag2/', :haml
 
 layout '*', :erb
 
 preprocess do
   require 'set'
-  tags = Set.new
+  tags = Hash.new { |h, k| h[k] = 0 }
   items.each do |item|
     if item[:tags]
-      item[:tags].each { |t| tags << t }
+      item[:tags].each { |t| tags[t] += 1 }
     end
   end  
 
-  tags.each do |tag|
-    items << Nanoc3::Item.new("<%= render('tag', :tag => \"#{tag}\") %>",
-                              { :title => "Category: #{tag}"},
+  tags.each do |tag, count|
+    items << Nanoc3::Item.new(%[<%= render('tag', :tag_name => "#{tag}", :tag_count => "#{count}") %>],
+                              { :title => "Category: #{tag}",
+                                :tag_name => tag,
+                                :tag_count => count.to_s
+                              },
                               "/tags/#{tag}/")
   end
   # items << Nanoc3::Item.new("",
