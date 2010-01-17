@@ -1,0 +1,28 @@
+!!!
+%html
+  %head
+    %title
+      = "User Primary - " + @item[:title]
+    %link{ :rel => "stylesheet", :type => "text/css", :href => "/style/style.css", :media => "screen"}
+    %link{ :rel => "stylesheet", :type => "text/css", :href => "/style/grid.css", :media => "screen"}
+  %body
+    .row
+      .column.grid_12
+        %p
+        User Primary
+        %ul
+          %li
+            Home
+          %li
+            Archives
+            %a{ :href => "/posts/" }
+              posts
+            %a{ :href => "/tags/" }
+              tags
+          %li
+            Software
+          %li
+            Links
+    .row
+      .column.grid_8
+        = yield

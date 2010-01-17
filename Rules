@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+
 compile '/posts/' do
   filter :haml
   layout 'default'
@@ -7,14 +8,7 @@ end
 
 compile '/posts/*' do
   filter :bluecloth
-  layout 'default'
-end
-
-route '/posts/[0-9]+/*' do
-  nn = File.basename(item.identifier.chop)
-  dd = File.dirname(item.identifier.chop)
-  month, day, post = nn.split("-", 3)
-  dd + "/#{month}/#{day}/#{post}/index.html"
+  layout '/main/'
 end
 
 compile '/tags/' do
@@ -23,10 +17,25 @@ compile '/tags/' do
 end
 
 compile '/tags/*' do
-  filter :haml
+#  filter :haml
   layout 'default'
-  filter :erb
+#  filter :haml
 end
+
+compile '/style/*' do
+end
+
+route '/style/*' do
+  item.identifier.chop + ".css"
+end
+
+layout '/tag/', :erb
+layout '/tag2/', :haml
+
+# need to look into this, seems like the directive for /default/
+# does not work
+layout '/default/', :haml
+layout '*', :haml
 
 compile '*' do
   filter :erb
@@ -36,11 +45,6 @@ end
 route '*' do
   item.identifier + 'index.html'
 end
-
-layout '/tag/', :erb
-layout '/tag2/', :haml
-
-layout '*', :erb
 
 preprocess do
   require 'set'
@@ -52,15 +56,11 @@ preprocess do
   end  
 
   tags.each do |tag, count|
-    items << Nanoc3::Item.new(%[<%= render('tag', :tag_name => "#{tag}", :tag_count => "#{count}") %>],
+    items << Nanoc3::Item.new(render('tag2', :tag_name => "#{tag}", :tag_count => "#{count}", :items => items),
                               { :title => "Category: #{tag}",
                                 :tag_name => tag,
                                 :tag_count => count.to_s
                               },
                               "/tags/#{tag}/")
   end
-  # items << Nanoc3::Item.new("",
-  #                           { :title => "All Tags" },
-  #                           "/tags/")
-  #                           )
 end
