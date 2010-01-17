@@ -1,9 +1,0 @@
-%h1
-  = @tag_count
-  posts tagged
-  = @tag_name
-%ul
-  - items_with_tag(@tag_name).each do |p|
-    %li
-      %a{ :href => p.identifier }
-        = p[:title]

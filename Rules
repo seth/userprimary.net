@@ -8,7 +8,7 @@ end
 
 compile '/posts/*' do
   filter :bluecloth
-  layout '/main/'
+  layout 'default'
 end
 
 compile '/tags/' do
@@ -29,12 +29,8 @@ route '/style/*' do
   item.identifier.chop + ".css"
 end
 
-layout '/tag/', :erb
-layout '/tag2/', :haml
+layout '/tag/', :haml
 
-# need to look into this, seems like the directive for /default/
-# does not work
-layout '/default/', :haml
 layout '*', :haml
 
 compile '*' do
@@ -56,7 +52,7 @@ preprocess do
   end  
 
   tags.each do |tag, count|
-    items << Nanoc3::Item.new(render('tag2', :tag_name => "#{tag}", :tag_count => "#{count}", :items => items),
+    items << Nanoc3::Item.new(render('tag', :tag_name => "#{tag}", :tag_count => "#{count}", :items => items),
                               { :title => "Category: #{tag}",
                                 :tag_name => tag,
                                 :tag_count => count.to_s
