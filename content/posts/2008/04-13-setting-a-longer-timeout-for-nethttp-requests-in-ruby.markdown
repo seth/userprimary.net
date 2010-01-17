@@ -1,6 +1,6 @@
 In order to exercise a RESTful web service I've been working on, I wrote a quick Ruby script to hammer the service with large update requests.  After uncovering and fixing a handful of concurrency issues in the server, I started seeing timeout errors in my test script when I sent numerous simultaneous updates.  The errors look like:
 
-<quickcode:noclick>/opt/local/lib/ruby/1.8/timeout.rb:54:in `rbuf_fill': execution expired (Timeout::Error)
+<pre>/opt/local/lib/ruby/1.8/timeout.rb:54:in `rbuf_fill': execution expired (Timeout::Error)
 	from /opt/local/lib/ruby/1.8/timeout.rb:56:in `timeout'
 	from /opt/local/lib/ruby/1.8/timeout.rb:76:in `timeout'
 	from /opt/local/lib/ruby/1.8/net/protocol.rb:132:in `rbuf_fill'
@@ -15,11 +15,11 @@ In order to exercise a RESTful web service I've been working on, I wrote a quick
 	from /opt/local/lib/ruby/1.8/net/http.rb:842:in `post'
 	from ./rndsender.rb:21:in `post_update'
 	from ./rndsender.rb:76:in `main'
-	from ./rndsender.rb:80</quickcode>
+	from ./rndsender.rb:80</pre>
 
 Adding a rescue as shown below allows you to handle the timeout error:
 
-<quickcode:noclick>def post_update(path, payload)
+<pre>def post_update(path, payload)
   http = Net::HTTP.new(@host, @port)
   res = http.post(path, payload, {'Content-Type' =>; 'application/xml'})
   case res
@@ -31,13 +31,13 @@ Adding a rescue as shown below allows you to handle the timeout error:
   rescue Timeout::Error =>; e
     puts "update timeout error"
 end
-</quickcode>
+</pre>
 
 After searching a bit on the web, I came across <a href="http://groups.google.com/group/rubyonrails-talk/browse_thread/thread/fdbc95dae6b7f5f2">this post</a> that had the magic incantation for adjusting the timeout in the Net::HTTP API.  Here it is:
 
-<quickcode:noclick>http = Net::HTTP.new(@host, @port)
+<pre>http = Net::HTTP.new(@host, @port)
 http.read_timeout = 500
-</quickcode>
+</pre>
 
 And in case you are interested in actually making use of the timeout, be warned!  <a href="http://headius.blogspot.com/2008/02/rubys-threadraise-threadkill-timeoutrb.html">Read this</a> in which you will learn that
 
