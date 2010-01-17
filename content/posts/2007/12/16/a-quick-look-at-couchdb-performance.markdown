@@ -14,7 +14,7 @@ The test machine is a dual Xeon 2.4MHz server with 4GB RAM running Debian 4.0.  
 
 All tests use a small document template that looks like this:
 
-<quickcode:noclick>
+<pre>
 // Example document
 {
 "name":12345, // integer
@@ -22,7 +22,7 @@ All tests use a small document template that looks like this:
 "type":"washer",
 "tstamp":12345 // long
 }
-</quickcode>
+</pre>
 
 For all of the following tests, the client was run on the same server that was running CouchDB.
 
@@ -30,25 +30,25 @@ For all of the following tests, the client was run on the same server that was r
 
 For Test 1, I created new documents in an empty database one after another in a loop.
 
-<quickcode:noclick>
+<pre>
 === Add single doc in a loop ===
 |      N |  sec | Docs/sec |
 |--------+------+----------|
 |   1000 |    9 |      111 |
 |  10000 |  102 |       98 |
 | 100000 | 1075 |       93 |
-</quickcode>
+</pre>
 
 The times scale linearly, but I was surprised to see a 1.3GB file size for the database in the 100K case.  Given the small example document, I estimated an optimistic lower bound on the space required for storage:
 
-<quickcode:noclick>
+<pre>
 "name"   => 4B
 "color"  => 9B (5B for "white", 4B int for length)
 "type"   => 10B
 "tstamp" => 8B
 "_id"    => 36B (assume internally assigned ID stored
                  as 32B string + length)
-</quickcode>
+</pre>
 
 
 The total is 67B/doc, but let's call it 100B/doc to have a nice round number.  So 100K documents translates to 9MB.  A final DB size of 1.3GB implies an inflation factor of 148.  I know disk space is cheap, but is it that cheap?
@@ -58,25 +58,25 @@ The total is 67B/doc, but let's call it 100B/doc to have a nice round number.  S
 
 For Test 2, I used the _bulk_docs API to create each set of documents in one call.
 
-<quickcode:noclick>
+<pre>
 === Add N docs in bulk ===
 |      N | sec | Docs/sec |
 |--------+-----+----------|
 |   1000 | 0.6 | 1667     |
 |  10000 |  15 | 667      |
 | 100000 |  NA | NA       |
-</quickcode>
+</pre>
 
 When attempting to add 100K documents in bulk the client said:
-<quickcode:noclick>
+<pre>
     /usr/lib/ruby/1.8/timeout.rb:54:in `rbuf_fill': execution expired (Timeout::Error)
-</quickcode>
+</pre>
 
 And the server said:
-<quickcode:noclick>
+<pre>
     eheap_alloc: Cannot allocate 729810240 bytes of memory (of type "heap").
     Aborted
-</quickcode>
+</pre>
 
 Here I was surprised both that 100K documents was enough to exhaust the system's memory and that the result was a complete crash of the server.  I wonder how hard it would be to take advantage of Erlang's touted fault tolerant features to make the server more robust to such situations.
 

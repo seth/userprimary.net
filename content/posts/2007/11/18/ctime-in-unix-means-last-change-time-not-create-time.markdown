@@ -1,13 +1,13 @@
 I've always thought that "<strong>ctime</strong>" provides the creation time of a file on a unix filesystem, and I've always been wrong about that.  A better mnemonic is <em>change time</em> since the ctime indicates the last time a file's metadata (inode) was changed.  It isn't as if this information is deeply hidden.  Indeed, if you read the man page for stat, you will likely find a fairly straight forward description.  For example, on OS X you will see:
 
-<quickcode:noclick>
+<pre>
     # cut from "man stat"
 
     st_ctime     Time when file status was last changed (inode data modifica-
                  tion).  Changed by the chmod(2), chown(2), link(2),
                  mknod(2), rename(2), unlink(2), utimes(2) and write(2) sys-
                  tem calls.
-</quickcode>
+</pre>
 
 The <a href="http://man-wiki.net/index.php/2:stat">Linux man page for stat</a> summarizes ctime behavior nicely: "The  field  st_ctime is changed by writing or by setting inode information (i.e., owner, group, link count, mode, etc.)."
 

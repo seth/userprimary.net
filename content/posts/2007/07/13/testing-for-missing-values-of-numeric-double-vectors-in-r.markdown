@@ -3,7 +3,7 @@ I just came across this bit of <a href="http://www.r-project.org">R</a> trickine
 It is an easy mistake to make since one might be lulled into complacency by the repeating patterns of a switch statement.  Here's how NOT to do it:
 
 
-<quickcode:noclick>
+<pre>
 SEXP hello_hasNA(SEXP v)
 {
     int i, found_na = 0;
@@ -34,17 +34,17 @@ SEXP hello_hasNA(SEXP v)
     }
     return ScalarLogical(found_na);
 }
-</quickcode>
+</pre>
 
 
 To fix things, replace the REALSXP case like this:
 
-<quickcode:noclick>
+<pre>
         case REALSXP:
             if (ISNA(REAL(v)[i]))
                 found_na = 1;
             break;
-</quickcode>
+</pre>
 
 
 <!-- technorati tags start --><p style="text-align:right;font-size:10px;">Technorati Tags: <a href="http://www.technorati.com/tag/programming" rel="tag">programming</a>, <a href="http://www.technorati.com/tag/R" rel="tag">R</a></p><!-- technorati tags end -->

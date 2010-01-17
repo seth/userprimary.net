@@ -8,7 +8,7 @@ I took a closer look at the APIs of those services that provide the ability to "
 </strong>
 The site with the cleanest API is <a href="http://ur.ly/">ur.ly</a>, an open source URL shortening service hosted on Google's App Engine.  Here's an excerpt from the <a href="http://code.google.com/p/urly/wiki/APIDocumentation">ur.ly API docs</a>:
 
-<quickcode:noclick>Create a New ur.ly
+<pre>Create a New ur.ly
 
 Create a new ur.ly and redirect to it (not useful, we know)
 http://ur.ly/new?href={href}
@@ -35,31 +35,31 @@ http://ur.ly/{code}.json
 
 Display an ur.ly in XML format
 http://ur.ly/{code}.xml
-</quickcode>
+</pre>
 I really like how simple they've made the API for shortening and previewing in the assortment of data formats.  Using the format extension on the shortened URL to get a preview makes sense to me and is easy to remember.
 
 <strong>is.gd</strong>
 
 The service at <a href="http://is.gd">is.gd</a> is also nice and simple, although they only provide HTML responses which makes the service far less useful for integrating into other applications.
 
-<quickcode:noclick>Shorten
+<pre>Shorten
 http://is.gd/api.php?longurl=http://www.example.com
 
 Preview
 http://is.gd/{code}-
-</quickcode>So previewing with is.gd is very easy, just append a trailing '-' to the URL.  However, I find the trailing dash less intuitive then ur.ly's format extension.  Another feature of is.gd is that you can add additional path elements that are ignored for redirection.  So you can do http://is.gd/123/something.  I guess that's somewhat useful, although it obviously makes the URL longer...
+</pre>So previewing with is.gd is very easy, just append a trailing '-' to the URL.  However, I find the trailing dash less intuitive then ur.ly's format extension.  Another feature of is.gd is that you can add additional path elements that are ignored for redirection.  So you can do http://is.gd/123/something.  I guess that's somewhat useful, although it obviously makes the URL longer...
 
 
 <strong>bit.ly</strong>
 
 The <a href="http://bit.ly">bit.ly</a> service has a number of additional features.  They have user accounts and provide the ability to track usage statistics of your shortened URLs.  Their API is <a href="http://code.google.com/p/bitly-api/wiki/ApiDocumentation">well documented</a> and reasonable, but much more complicated as a result of the user/developer accounts and additional features.  They host their API docs on Google code, which is an interesting approach for getting a cheap developer community setup.  Here's a summary of just the shorten and preview features:
 
-<quickcode:noclick>/shorten
+<pre>/shorten
 http://api.bit.ly/shorten?version=2.0.1&#38;longUrl=http://cnn.com&#38;login=bitlyapidemo&#38;apiKey=R_0da49e0a9118ff35f52f629d2d71bf07
 
 /expand
 http://api.bit.ly/expand?version=2.0.1&#38;shortUrl=http://bit.ly/31IqMl&#38;login=bitlyapidemo&#38;apiKey=R_0da49e0a9118ff35f52f629d2d71bf07
-</quickcode>If bit.ly only provides shorten and preview, I would say that the /shorten and /expand resources are too verbose, but in the context of their API, it makes more sense since they also provide /info and /stats.  Like ur.ly, you can get responses in XML and JSON.  They also provide a JSONP callback mechanism.
+</pre>If bit.ly only provides shorten and preview, I would say that the /shorten and /expand resources are too verbose, but in the context of their API, it makes more sense since they also provide /info and /stats.  Like ur.ly, you can get responses in XML and JSON.  They also provide a JSONP callback mechanism.
 
 <strong>snipurl.com</strong>
 
@@ -73,11 +73,11 @@ The winner of the make a simple API hard award goes to <a href="http://snipurl.c
 
 To end on a positive note, I also found <a href="http://tr.im">tr.im</a> which not only has the best domain name of the bunch, but has a very clean API despite supporting a similar feature set as bit.ly in terms of accounts and statistics.  I'm not sure if it is just a matter of how the <a href="http://tr.im/api">API is documented</a>, but it feels a bit cleaner and easier than the bit.ly API.
 
-<quickcode:noclick>Trim
+<pre>Trim
 http://tr.im/api/trim_url.json?url=http://www.google.com
 
 Preview
 http://tr.im/api/trim_destination.json?trimpath=abc
-</quickcode>I especially like that their API can be used without an API key for low frequency use and testing, but that you can optionally obtain an API key for heavier use and to gain access to additional features.
+</pre>I especially like that their API can be used without an API key for low frequency use and testing, but that you can optionally obtain an API key for heavier use and to gain access to additional features.
 
 <!-- technorati tags start --><p style="text-align:right;font-size:10px;">Technorati Tags: <a href="http://www.technorati.com/tag/programming" rel="tag">programming</a>, <a href="http://www.technorati.com/tag/REST" rel="tag">REST</a></p><!-- technorati tags end -->

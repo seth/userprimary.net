@@ -5,5 +5,5 @@
 %ul
   - items_with_tag(@tag_name).each do |p|
     %li
-      %a{ :href => p.reps[0].path }
+      %a{ :href => p.identifier }
         = p[:title]

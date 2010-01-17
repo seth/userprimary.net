@@ -4,7 +4,7 @@ He also links first class functions to Google's <a href="http://labs.google.com/
 
 You can use this in a duplication reducing way to simplify repeated function calls where only a few of the parameters change.  For example:
 
-<quickcode:noclick>foo(a, b, c, "yes")
+<pre>foo(a, b, c, "yes")
 foo(a, b, c, "no")
 foo(a, b, c, "maybe")
 
@@ -16,11 +16,11 @@ myfoo <- function(a, b, c, ans) {
 
 myfoo("yes")
 myfoo("no")
-myfoo("maybe")</quickcode>
+myfoo("maybe")</pre>
 
 You can also use lexical scope to maintain state across function calls.  This one is perhaps less interesting since in most OO languages, this sort of thing is done via classes.
 
-<quickcode:noclick>
+<pre>
 callCounter <- function() {
     count <- 0
     function() {
@@ -38,4 +38,4 @@ countCalls <- callCounter()
 > countCalls()
 [1] "I've been called 2 times"
 > 
-</quickcode>
+</pre>
