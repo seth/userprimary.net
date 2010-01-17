@@ -10,6 +10,13 @@ compile '/posts/*' do
   layout 'default'
 end
 
+route '/posts/[0-9]+/*' do
+  nn = File.basename(item.identifier.chop)
+  dd = File.dirname(item.identifier.chop)
+  month, day, post = nn.split("-", 3)
+  dd + "/#{month}/#{day}/#{post}/index.html"
+end
+
 compile '/tags/' do
   filter :haml
   layout 'default'
