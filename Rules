@@ -17,9 +17,8 @@ compile '/tags/' do
 end
 
 compile '/tags/*' do
-#  filter :haml
+  filter :haml
   layout 'default'
-#  filter :haml
 end
 
 compile '/style/*' do
@@ -30,7 +29,6 @@ route '/style/*' do
 end
 
 layout '/tag/', :haml
-
 layout '*', :haml
 
 compile '*' do
@@ -52,7 +50,7 @@ preprocess do
   end  
 
   tags.each do |tag, count|
-    items << Nanoc3::Item.new(render('tag', :tag_name => "#{tag}", :tag_count => "#{count}", :items => items),
+    items << Nanoc3::Item.new(%[= render('tag', :tag_name => "#{tag}", :tag_count => "#{count}")],
                               { :title => "Category: #{tag}",
                                 :tag_name => tag,
                                 :tag_count => count.to_s
