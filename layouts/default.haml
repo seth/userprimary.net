@@ -8,21 +8,19 @@
   %body
     .row
       .column.grid_12
-        %p
-        User Primary
-        %ul
-          %li
-            Home
-          %li
-            Archives
-            %a{ :href => "/posts/" }
-              posts
-            %a{ :href => "/tags/" }
-              tags
-          %li
-            Software
-          %li
-            Links
+        #header_logo
+          %p
+            User Primary
+        #navlist
+          %ul
+            %li
+              = nav_link_to_unless_current("Home", "/")
+            %li
+              = nav_link_to_unless_current("Archives", "/posts/")
+            %li
+              = nav_link_to_unless_current("Software", "/software/")
+            %li
+              = nav_link_to_unless_current("Links", "/links/")
     .row
       .column.grid_8
         = yield

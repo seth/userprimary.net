@@ -21,7 +21,12 @@ compile '/tags/*' do
   layout 'default'
 end
 
+compile '/style/style/' do
+    filter :sass
+end
+
 compile '/style/*' do
+  nil
 end
 
 route '/style/*' do
