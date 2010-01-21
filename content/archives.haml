@@ -1,0 +1,20 @@
+.row
+  .column.grid_4
+    %h3
+      Posts by topic
+    %ul
+      - get_tag_items.sort {|a, b| a[:tag_name] <=> b[:tag_name] }.each do |t|
+        %li
+          %a{ :href => t.identifier, :title => "posts tagged #{t[:tag_name]}" }
+            = t[:tag_name]
+          = "(" + t[:tag_count] + ")"
+  .column.grid_4
+    %h3
+      Posts by Month
+    %ul
+      - get_archive_items.each do |a|
+        %li
+          %a{ :href => a.identifier }
+            = a[:title]
+          = "(#{a[:post_count]})"
+

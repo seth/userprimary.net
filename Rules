@@ -1,5 +1,14 @@
 #!/usr/bin/env ruby
 
+compile '/' do
+  filter :haml
+  layout 'default'
+end
+
+compile '/archives/' do
+  filter :haml
+  layout 'default'
+end
 
 compile '/posts/' do
   filter :haml
@@ -46,11 +55,17 @@ route '*' do
 end
 
 preprocess do
-  require 'set'
   tags = Hash.new { |h, k| h[k] = 0 }
+  bymonth = Hash.new { |h, k| h[k] = [] }
+
   items.each do |item|
     if item[:tags]
       item[:tags].each { |t| tags[t] += 1 }
+    end
+
+    if item[:kind] == "article"
+      t = Time.parse(item[:created_at])
+      bymonth[t.strftime("%Y-%B")] << item
     end
   end  
 
@@ -62,4 +77,16 @@ preprocess do
                               },
                               "/tags/#{tag}/")
   end
+
+  bymonth.each do |year_month, posts|
+    posts = posts.sort_by { |p| Time.parse(p[:created_at]) }.reverse
+    items << Nanoc3::Item.new(render('bymonth', :posts => posts,
+                                     :year_month => year_month),
+                              { :title => "#{year_month}",
+                                :post_count => posts.count },
+                              "/archives/#{year_month}/")
+  end
+
+  
+  
 end

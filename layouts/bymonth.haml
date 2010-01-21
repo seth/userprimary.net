@@ -1,0 +1,8 @@
+%h1
+  = @year_month + ":"
+  = @posts.count.to_s + " posts"
+%ul
+  - @posts.each do |p|
+    %li
+      %a{ :href => p.identifier }
+        = p[:title]

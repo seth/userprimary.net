@@ -1,0 +1,15 @@
+.row
+  .column.grid_4
+    %h3
+      Recent Posts
+    %ul
+      - sorted_articles[0..4].each do |post|
+        %li
+          %a{ :href => post.identifier }
+            = post[:title]
+          = " (" + tags_for(post) + ")"
+  .column.grid_4
+    %h3
+      Other Stuff...
+
+ 
