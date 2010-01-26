@@ -11,10 +11,13 @@
   .column.grid_4
     %h3
       Posts by Month
-    %ul
-      - get_archive_items.each do |a|
-        %li
-          %a{ :href => a.identifier }
-            = a[:title]
-          = "(#{a[:post_count]})"
+      - get_archive_items.each do |k|
+        %h2
+          = k[:year]
+        %ul
+          - k[:items].each do |a|
+            %li
+              %a{ :href => a.identifier }
+                = a[:month]
+              = "(#{a[:post_count]})"
 

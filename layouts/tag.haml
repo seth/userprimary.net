@@ -1,9 +1,13 @@
 %h1
-  = @tag_count
-  posts tagged
   = @tag_name
+%h2
+  = @tag_count
+  posts
+  
 %ul
-  - items_with_tag(@tag_name).each do |p|
+  - items_with_tag(@tag_name).reverse.each do |p|
     %li
       %a{ :href => p.identifier }
         = p[:title]
+      = timeago(p)
+

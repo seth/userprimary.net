@@ -15,8 +15,17 @@ def get_tag_items
 end
 
 def get_archive_items
-  archives = @items.find { |i| i.identifier == "/archives/" }.children
-  archives.sort_by { |a| Time.parse(a[:title]) }
+  aa = @items.find { |i| i.identifier == "/archives/" }.children
+  aa = aa.sort { |a, b| b[:most_recent] <=> a[:most_recent] }
+  m = Hash.new { |h, k| h[k] = [] }
+  aa.each do |a|
+    m[a[:year]] << a
+  end
+  ans = []
+  m.keys.sort.reverse.each do |k|
+    ans << { :year => k, :items => m[k] }
+  end
+  ans
 end
 
 def nav_link_to_unless_current(text, path)
@@ -27,3 +36,11 @@ def nav_link_to_unless_current(text, path)
   end
 end
 
+def article_date(a)
+  Time.parse(a[:created_at])
+end
+
+def timeago(a)
+  d = article_date(a).iso8601.to_s
+  %[<abbr class="timeago" title="#{d}">#{d}</abbr>]
+end

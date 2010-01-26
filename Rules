@@ -59,11 +59,11 @@ preprocess do
   bymonth = Hash.new { |h, k| h[k] = [] }
 
   items.each do |item|
-    if item[:tags]
-      item[:tags].each { |t| tags[t] += 1 }
-    end
-
     if item[:kind] == "article"
+      if item[:tags]
+        item[:tags].each { |t| tags[t] += 1 }
+      end
+
       t = Time.parse(item[:created_at])
       bymonth[t.strftime("%Y-%B")] << item
     end
@@ -80,10 +80,15 @@ preprocess do
 
   bymonth.each do |year_month, posts|
     posts = posts.sort_by { |p| Time.parse(p[:created_at]) }.reverse
+    most_recent = Time.parse(posts.first[:created_at])
     items << Nanoc3::Item.new(render('bymonth', :posts => posts,
                                      :year_month => year_month),
                               { :title => "#{year_month}",
-                                :post_count => posts.count },
+                                :post_count => posts.count,
+                                :most_recent => most_recent,
+                                :month => most_recent.strftime("%B"),
+                                :year => most_recent.strftime("%Y")
+                              },
                               "/archives/#{year_month}/")
   end
 
