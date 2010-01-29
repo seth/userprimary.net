@@ -1,8 +1,8 @@
 .row
   .column.grid_4
-    %h3
+    %h2
       Recent Posts
-    %ul
+    %ul.posts
       - sorted_articles[0..4].each do |post|
         %li
           %a{ :href => post.identifier }
@@ -10,7 +10,7 @@
           = " (" + tags_for(post) + ")"
           = timeago(post)
   .column.grid_4
-    %h3
+    %h2
       Other Stuff...
 
  

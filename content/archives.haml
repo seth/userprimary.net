@@ -2,7 +2,7 @@
   .column.grid_4
     %h3
       Posts by topic
-    %ul
+    %ul.posts
       - get_tag_items.sort {|a, b| a[:tag_name] <=> b[:tag_name] }.each do |t|
         %li
           %a{ :href => t.identifier, :title => "posts tagged #{t[:tag_name]}" }
@@ -14,7 +14,7 @@
       - get_archive_items.each do |k|
         %h2
           = k[:year]
-        %ul
+        %ul.posts
           - k[:items].each do |a|
             %li
               %a{ :href => a.identifier }

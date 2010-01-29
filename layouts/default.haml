@@ -7,12 +7,16 @@
     %link{ :rel => "stylesheet", :type => "text/css", :href => "/style/style.css", :media => "screen"}
     %link{ :rel => "stylesheet", :type => "text/css", :href => "/style/grid.css", :media => "screen"}
   %body
-    .row
+    .row.header_row
       .column.grid_4
         #header_logo
           %p
+            %strong
+              {
             User Primary
-      .column.grid_4 
+            %strong
+              }
+      .column.grid_8
         #navlist
           %ul
             %li
@@ -23,6 +27,7 @@
               = nav_link_to_unless_current("Software", "/software/")
             %li
               = nav_link_to_unless_current("Links", "/links/")
-    .row
+    .row.main_row
       .column.grid_8
-        = yield
+        #main
+          = yield
