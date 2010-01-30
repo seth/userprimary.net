@@ -31,7 +31,8 @@ end
 def nav_link_to_unless_current(text, path)
   lb = %[<strong class="bracket">{</strong>]
   rb = %[<strong class="bracket">}</strong>]
-  if @item_rep and @item_rep.path == path
+  if @item_rep && ((@item_rep.path == path) ||
+    (path.length > 1 && @item_rep.path =~ /^#{path[1..-1]}/))
     %[<span class="current">#{lb}#{text}#{rb}</span>]
   else
     %[<a href="#{path}">#{lb}#{text}#{rb}</a>]
