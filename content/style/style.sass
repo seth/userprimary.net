@@ -76,7 +76,6 @@ a
   padding: 0.3em 0.3em 0.3em 0.3em
   margin: 0.3em 0.3em 0.3em 0.3em
   font-size: 1.5em
-
   li
     list-style: none
     margin: 0 0 0.4em 0
@@ -88,25 +87,24 @@ a
       padding-bottom: 0.3em
       margin-left: 0.3em
       margin-bottom: 0.2em
-      border-top: 1px solid #778
-      border-right: 1px solid #778
-      border-left: 1px solid #778
-      border-bottom: 1px solid #778
-      background: #B8B8B8
       text-decoration: none
+      strong.bracket
+        visibility: hidden
 
       &:link
-        color: #448
+        color: #5e5e5e
       &:visited
-        color: #667
+        color: #5e5e5e
 
       &:hover
-        color: #000
-        background: #AAE
-        border-color: #227
+        strong.bracket
+          visibility: visible
+          color: #5e5e5e
 
     a.current, span.current
-      background: white
+      strong.bracket
+        visibility: visible
+        color: #000
 
 #header_logo
   float: left

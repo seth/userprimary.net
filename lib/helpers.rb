@@ -29,10 +29,12 @@ def get_archive_items
 end
 
 def nav_link_to_unless_current(text, path)
+  lb = %[<strong class="bracket">{</strong>]
+  rb = %[<strong class="bracket">}</strong>]
   if @item_rep and @item_rep.path == path
-    %[<span class="current">#{text}</span>]
+    %[<span class="current">#{lb}#{text}#{rb}</span>]
   else
-    %[<a href="#{path}">#{text}</a>]
+    %[<a href="#{path}">#{lb}#{text}#{rb}</a>]
   end
 end
 
