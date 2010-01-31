@@ -1,6 +1,7 @@
 include Nanoc3::Helpers::Blogging
 include Nanoc3::Helpers::Tagging
 include Nanoc3::Helpers::Rendering
+include Nanoc3::Helpers::XMLSitemap
 
 require 'rubygems'
 require 'hpricot'
@@ -80,6 +81,31 @@ end
 
 def twitter_badge
   %[<a href="http://www.twitter.com/sfalcon"><img src="http://twitter-badges.s3.amazonaws.com/follow_me-b.png" alt="Follow sfalcon on Twitter"/></a>]
+end
+
+def meta_tag(name, content)
+  %[<meta content="#{content}" name="#{name}"></meta>]
+end
+
+def site_meta_tags
+  meta = {
+    "robots" => "INDEX,FOLLOW",
+    "content-language" => "english",
+    "keywords" => ("Seth Falcon, user primary, userprimary, " +
+                   "userprimary.net, R programming"),
+    "description" => "Homepage and blog for Seth Falcon, User Primary",
+    "author" => "Seth Falcon",
+    "copyright" => "Seth Falcon",
+    "audience" => "All"
+  }
+  meta.map do |name, content|
+    meta_tag(name, content)
+  end.join("\n")
+end
+
+def openid
+  %[<link rel="openid.server" href="http://www.myopenid.com/server" />
+<link rel="openid.delegate" href="http://seth.falcon.myopenid.com" />]
 end
 
 def make_excerpt(post)

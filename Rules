@@ -9,6 +9,10 @@ compile '/feed/' do
   filter :erb
 end
 
+compile '/sitemap/' do
+  filter :erb
+end
+
 compile '/archives/' do
   filter :haml
   layout 'default'
@@ -44,6 +48,10 @@ end
 
 route '/feed/' do
   item.identifier.chop + ".atom"
+end
+
+route '/sitemap/' do
+  item.identifier.chop + ".xml"
 end
 
 route '/style/*' do
