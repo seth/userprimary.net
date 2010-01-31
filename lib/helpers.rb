@@ -2,6 +2,8 @@ include Nanoc3::Helpers::Blogging
 include Nanoc3::Helpers::Tagging
 include Nanoc3::Helpers::Rendering
 
+require 'rubygems'
+require 'hpricot'
 require 'time'
 
 # sort items with a :created_at timestamp in
@@ -78,4 +80,10 @@ end
 
 def twitter_badge
   %[<a href="http://www.twitter.com/sfalcon"><img src="http://twitter-badges.s3.amazonaws.com/follow_me-b.png" alt="Follow sfalcon on Twitter"/></a>]
+end
+
+def make_excerpt(post)
+  doc = Hpricot(post.reps.first.content_at_snapshot(:last))
+  excerpt = doc/"#main p"
+  excerpt.inner_text[0..250]
 end

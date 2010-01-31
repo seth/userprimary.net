@@ -12,6 +12,8 @@
         = timeago(post)
         %span.tag_list
           = " in: " + tags_for(post, :base_url => "/tags/")
+        %p
+          = make_excerpt(post)
         
   .column.grid_2
     %h2
