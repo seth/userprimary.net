@@ -56,6 +56,14 @@ def javascript(name)
   %[<script type="text/javascript" src="/js/#{name}"></script>]
 end
 
+def feed_link
+  url = "http://userprimary.net/user/feed.atom"
+  ct = "application/atom+xml"
+  title = "User Primary"
+  %[<link rel="alternate" type="#{ct}" title="#{title}" href="#{url}"></link>]
+end
+## %[<link rel='index' title='User Primary' href='http://userprimary.net/user' />]
+  
 def linked_in_badge1
   %[<a href="http://www.linkedin.com/in/sethfalcon" >
           <img src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x25.png" width="160" height="25" border="0" alt="View Seth Falcon's profile on LinkedIn">

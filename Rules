@@ -5,6 +5,10 @@ compile '/' do
   layout 'default'
 end
 
+compile '/feed/' do
+  filter :erb
+end
+
 compile '/archives/' do
   filter :haml
   layout 'default'
@@ -36,6 +40,10 @@ end
 
 compile '/style/*' do
   nil
+end
+
+route '/feed/' do
+  item.identifier.chop + ".atom"
 end
 
 route '/style/*' do
