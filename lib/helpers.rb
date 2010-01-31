@@ -85,5 +85,5 @@ end
 def make_excerpt(post)
   doc = Hpricot(post.reps.first.content_at_snapshot(:last))
   excerpt = doc/"#main p"
-  excerpt.inner_text[0..250]
+  excerpt.inner_text[0..250] + "... "
 end
