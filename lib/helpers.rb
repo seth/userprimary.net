@@ -47,3 +47,27 @@ def timeago(a)
   d = article_date(a).iso8601.to_s
   %[<abbr class="timeago" title="#{d}">#{d}</abbr>]
 end
+
+def stylesheet(name)
+  %[<link rel="stylesheet" type="text/css" href="/style/#{name}"></link>]
+end
+
+def javascript(name)
+  %[<script type="text/javascript" src="/js/#{name}"></script>]
+end
+
+def linked_in_badge1
+  %[<a href="http://www.linkedin.com/in/sethfalcon" >
+          <img src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x25.png" width="160" height="25" border="0" alt="View Seth Falcon's profile on LinkedIn">
+    </a>]
+end
+
+def linked_in_badge
+  %[<a href="http://www.linkedin.com/in/sethfalcon" >
+          <img src="http://www.linkedin.com/img/webpromo/btn_profile_greytxt_80x15.png" width="80" height="15" border="0" alt="View Seth Falcon's profile on LinkedIn">
+    </a>]
+end
+
+def twitter_badge
+  %[<a href="http://www.twitter.com/sfalcon"><img src="http://twitter-badges.s3.amazonaws.com/follow_me-b.png" alt="Follow sfalcon on Twitter"/></a>]
+end

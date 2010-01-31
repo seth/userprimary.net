@@ -1,15 +1,19 @@
 .row
-  .column.grid_4
+  .column.grid_6
     %h2
       Recent Posts
-    %ul.posts
-      - sorted_articles[0..4].each do |post|
-        %li
+    - sorted_articles[0..4].each do |post|
+      #post_summary
+        %h3
           %a{ :href => post.identifier }
             = post[:title]
-          = " (" + tags_for(post) + ")"
-          = timeago(post)
-  .column.grid_4
+        %span.tag_list
+          archived
+        = timeago(post)
+        %span.tag_list
+          = " in: " + tags_for(post, :base_url => "/tags/")
+        
+  .column.grid_2
     %h2
       Other Stuff...
 

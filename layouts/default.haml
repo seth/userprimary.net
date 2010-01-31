@@ -4,10 +4,14 @@
   %head
     %title
       = "User Primary - " + @item[:title]
-    %link{ :rel => "stylesheet", :type => "text/css", :href => "/style/style.css", :media => "screen"}
-    %link{ :rel => "stylesheet", :type => "text/css", :href => "/style/grid.css", :media => "screen"}
+    = stylesheet("style.css")
+    = stylesheet("grid.css")
+    = javascript("jquery.js")
+    = javascript("jquery.timeago.js")
+    = javascript("jquery.corner.js")
+    = javascript("userp.js")
   %body
-    .row.header_row
+    #header_row.row
       .column.grid_4
         #header_logo
           %p
@@ -27,7 +31,31 @@
               = nav_link_to_unless_current("Software", "/software/")
             %li
               = nav_link_to_unless_current("Links", "/links/")
-    .row.main_row
+    #main_row.row
       .column.grid_8
         #main
           = yield
+    #footer_row.row
+      .column.grid_8
+        .row
+          .column.grid_5
+            %h2
+              Coordinates
+        .row
+          .column.grid_2
+            #coord_img
+              %img{ :src => "/images/seth-hood2.jpg", :height => "150px" }
+          .column.grid_3
+            #coord_list
+              %ul
+                %li
+                  < seth @ userprimary . net >
+                %li
+                  = twitter_badge
+                %li
+                  = linked_in_badge
+                %li
+                  I'm
+                  %a{ :href => "http://github.com/seth" }
+                  seth on github
+
