@@ -26,6 +26,11 @@ end
 compile '/posts/*' do
   filter :rdiscount
   layout 'default'
+  # this is ugly, but in the conversion from wordpress, the
+  # pseudo-markdown has <pre> tags aren getting indented in
+  # the generated HTML in a way that indents the formatted
+  # text.
+  filter :prefixhack
 end
 
 compile '/software/*' do
