@@ -41,6 +41,13 @@
             %h2
               = @item[:title]
           = yield
+          - if @item[:kind] == "article"
+            #post_details
+              %p
+                archived on
+                = Time.parse(@item[:created_at]).strftime("%Y-%m-%d")
+                in
+                = tags_for(@item, :base_url => "/tags/")
     #footer_row.row
       .column.grid_8
         .row
