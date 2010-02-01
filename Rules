@@ -28,6 +28,17 @@ compile '/posts/*' do
   layout 'default'
 end
 
+compile '/software/*' do
+  filter :bluecloth
+  layout 'default'
+end
+
+compile '/links/*' do
+  filter :erb
+  filter :bluecloth
+  layout 'default'
+end
+
 compile '/tags/' do
   filter :haml
   layout 'default'

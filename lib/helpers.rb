@@ -108,6 +108,10 @@ def openid
 <link rel="openid.delegate" href="http://seth.falcon.myopenid.com" />]
 end
 
+def delicious_widget
+  %[<script type="text/javascript" src="http://feeds.delicious.com/v2/js/sethf?title=Delicious%20Bookmarks&icon=m&count=5&sort=date&tags&extended&name"></script>]
+end
+
 def make_excerpt(post)
   doc = Hpricot(post.reps.first.content_at_snapshot(:last))
   excerpt = doc/"#main p"
