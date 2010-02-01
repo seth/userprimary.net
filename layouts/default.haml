@@ -37,6 +37,9 @@
     #main_row.row
       .column.grid_8
         #main
+          - if @item[:kind] == "article"
+            %h2
+              = @item[:title]
           = yield
     #footer_row.row
       .column.grid_8
