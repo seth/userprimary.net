@@ -24,7 +24,7 @@ compile '/posts/' do
 end
 
 compile '/posts/*' do
-  filter :bluecloth
+  filter :rdiscount
   layout 'default'
 end
 
