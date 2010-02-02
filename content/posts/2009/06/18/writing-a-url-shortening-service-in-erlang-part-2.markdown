@@ -111,7 +111,7 @@ Updating /Users/seth/Dropbox/SideProj/sherl/lib/sherl/ct-results/all_runs.html..
 
 I would like this setup much better if there was a way to have the console output be much more concise.  I find the output as it is a bit difficult to read.  The HTML reports that ct creates harken back to ye olde times in terms of the web design, but nevertheless provide nice summary and detail views of the tests.  Another interesting feature of ct is that it saves a separate report for each run so you can review progress by examining test result history.
 
-[caption id="attachment_200" align="alignright" width="150" caption="ct summary page"]<img src="http://userprimary.net/user/wp-content/uploads/2009/06/Picture-1-150x150.png" alt="ct summary page" title="ct summary page" width="150" height="150" class="size-thumbnail wp-image-200" />[/caption]
+[caption id="attachment_200" align="alignright" width="150" caption="ct summary page"]<img src="/uploads/2009/06/Picture-1-150x150.png" alt="ct summary page" title="ct summary page" width="150" height="150" class="size-thumbnail wp-image-200" />[/caption]
 
 Now back to our regularly scheduled program.  We've put in place a few very simple tests to verify that sherl_db:get_code and sherl_db:get_url work properly.  One thing we haven't tested is what happens when requests come in concurrently.  We'll define a test <code>concurrent_creating</code> that will spawn a number of processes each of which will call get_code for the same list of URLs.
 

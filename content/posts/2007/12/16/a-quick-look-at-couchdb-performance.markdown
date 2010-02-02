@@ -2,7 +2,7 @@ I had a chance to play with <a href="http://couchdb.org/CouchDB/CouchDBWeb.nsf/H
 
 The next pleasant surprise was the web-based database browser that comes with the installation.  Not only did it provide immediate feedback that I had a working installation, but the GUI actually allows you to do useful things like create/delete database and add/edit/remove documents.  Here's a screenshot showing the document view for one of my test documents:
 
-<img src="http://userprimary.net/user/wp-content/uploads/2007/12/200712151644.jpg" height="300" width="464" border="1" hspace="4" vspace="4" alt="200712151644" />
+<img src="/uploads/2007/12/200712151644.jpg" height="300" width="464" border="1" hspace="4" vspace="4" alt="200712151644" />
 
 Next, I installed the <a href="http://couchobject.rubyforge.org/">CouchObject</a> Ruby gem to quickly have a way of working with CouchDB from Ruby.  The hardest part here was figuring out that you have to <span style="font-family:monospace;font-size:9pt;">require 'rubygems'</span> to use gems.  If Ruby can find <span style="font-family:monospace;font-size:9pt;">rubygems</span> after I install it and if I call <span style="font-family:monospace;font-size:9pt;">gem install</span> as root, why can't Ruby find those packages without additional help?  Sigh.  Anyhow, once I could load the gem, using it to manipulate CouchDB was no problem.
 

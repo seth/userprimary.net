@@ -5,6 +5,6 @@
 
 It is possible to use digitally manipulate photos to fake the tilt-shift effect and <a href="http://tiltshiftmaker.com/">tiltshiftmaker.com</a> provides a service to do just that for any photo you care to upload.  I took a quick stab at it and produced the following fake miniature of an intersection near my house during the recent snow storm in Seattle:
 
-<a href="http://userprimary.net/user/wp-content/uploads/2009/01/16th-and-denny-tiltshift.jpg" onclick="window.open('http://userprimary.net/user/wp-content/uploads/2009/01/16th-and-denny-tiltshift.jpg','popup','width=1024,height=682,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://userprimary.net/user/wp-content/uploads/2009/01/16th-and-denny-tiltshift-tm.jpg" height="100" width="150" border="1" hspace="4" vspace="4" alt="16Th-And-Denny-Tiltshift" /></a>
+<a href="/uploads/2009/01/16th-and-denny-tiltshift.jpg" onclick="window.open('/uploads/2009/01/16th-and-denny-tiltshift.jpg','popup','width=1024,height=682,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="/uploads/2009/01/16th-and-denny-tiltshift-tm.jpg" height="100" width="150" border="1" hspace="4" vspace="4" alt="16Th-And-Denny-Tiltshift" /></a>
 
 <!-- technorati tags start --><p style="text-align:right;font-size:10px;">Technorati Tags: <a href="http://www.technorati.com/tag/photography" rel="tag">photography</a></p><!-- technorati tags end -->

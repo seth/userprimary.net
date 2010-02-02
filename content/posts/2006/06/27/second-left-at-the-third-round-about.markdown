@@ -6,4 +6,4 @@ We walked around Norwich hoping to find an internet cafe where we could get dire
 Finally, we asked at a petrol station where we received completely wrong directions.  Fortunately, a man overhead this and set us straight.  His directions were great.  We arrived at the Ol'Rect in no time.
 
 
-<img src="http://userprimary.net/user/wp-content/uploads/2006/06/DSC00110.jpg" height="300" width="400" border="1" hspace="4" vspace="4" alt="Seth and Regan at the Ol'Rect" title="Seth and Regan at the Ol'Rect" longdesc="Seth and Regan enjoy a well earned ale in their spacious suite at the Ol'Rect" />
+<img src="/uploads/2006/06/DSC00110.jpg" height="300" width="400" border="1" hspace="4" vspace="4" alt="Seth and Regan at the Ol'Rect" title="Seth and Regan at the Ol'Rect" longdesc="Seth and Regan enjoy a well earned ale in their spacious suite at the Ol'Rect" />

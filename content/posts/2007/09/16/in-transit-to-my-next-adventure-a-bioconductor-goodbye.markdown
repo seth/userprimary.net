@@ -6,6 +6,6 @@ I should mention that the Gentleman Lab is hiring.  These are great people to wo
 
 For completeness, here's the <a href="http://article.gmane.org/gmane.science.biology.informatics.conductor/14544/">goodbye message</a> I sent to the BioC lists a couple weeks ago.
 
-<img src="http://userprimary.net/user/wp-content/uploads/2007/09/image013.jpg" height="300" width="512" border="1" hspace="4" vspace="4" alt="The Hutch, where I used to work" title="The Hutch, where I used to work" />
+<img src="/uploads/2007/09/image013.jpg" height="300" width="512" border="1" hspace="4" vspace="4" alt="The Hutch, where I used to work" title="The Hutch, where I used to work" />
 
 <!-- technorati tags start --><p style="text-align:right;font-size:10px;">Technorati Tags: <a href="http://www.technorati.com/tag/Bioconductor" rel="tag">Bioconductor</a></p><!-- technorati tags end -->

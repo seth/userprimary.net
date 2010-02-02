@@ -2,7 +2,7 @@ For some definition of yesterday, I left Seattle for <a href="http://maps.google
 
 
 Here's the EBI and Sanger Centre
-<img src="http://userprimary.net/user/wp-content/uploads/2007/03/DSC00010.jpg" height="300" width="400" border="1" hspace="4" vspace="4" alt="DSC00010.JPG" title="DSC00010.JPG" />
+<img src="/uploads/2007/03/DSC00010.jpg" height="300" width="400" border="1" hspace="4" vspace="4" alt="DSC00010.JPG" title="DSC00010.JPG" />
 
 And here's where I'm staying
-<img src="http://userprimary.net/user/wp-content/uploads/2007/03/DSC00006-1.jpg" height="300" width="400" border="1" hspace="4" vspace="4" alt="DSC00006.JPG" title="DSC00006.JPG" />
+<img src="/uploads/2007/03/DSC00006-1.jpg" height="300" width="400" border="1" hspace="4" vspace="4" alt="DSC00006.JPG" title="DSC00006.JPG" />
