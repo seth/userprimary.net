@@ -1,4 +1,4 @@
-In <a href="http://userprimary.net/user/2009/06/15/writing-a-url-shortening-service-in-erlang-part-1/comment-page-1/#comment-10227">part 1</a>, we described our first pass at a module that interfaces to Mnesia to provide the core storage API for sherl, our URL shortening service.
+In <a href="/posts/2009/06/15/writing-a-url-shortening-service-in-erlang-part-1">part 1</a>, we described our first pass at a module that interfaces to Mnesia to provide the core storage API for sherl, our URL shortening service.
 
 Our code, at present, consists of a single file, sherl_db.erl.  Since the url record will be useful to modules that call sherl_db, I extracted the definition into a separate url.hrl file and then setup the files to follow the <a href="http://erlang.org/doc/design_principles/applications.html#7.4">OTP directory structure conventions</a>.  Here's what we have:
 

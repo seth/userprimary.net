@@ -63,7 +63,7 @@ to_html(ReqData, State) ->
      ReqData, State}.
 </pre>
 
-In addition, we need to update sherlweb.app by removing sherlweb_resource and adding the above two modules (also delete sherlweb_resource.erl from the src directory).  Then modify sherlweb.erl so that the sherl application implemented in <a href="http://userprimary.net/user/2009/06/20/writing-a-url-shortening-service-in-erlang-part-3/">Part 3</a> will be started as part of the web app initialization.  The modified sherlweb:start/0 looks like this:
+In addition, we need to update sherlweb.app by removing sherlweb_resource and adding the above two modules (also delete sherlweb_resource.erl from the src directory).  Then modify sherlweb.erl so that the sherl application implemented in <a href="/posts/2009/06/20/writing-a-url-shortening-service-in-erlang-part-3/">Part 3</a> will be started as part of the web app initialization.  The modified sherlweb:start/0 looks like this:
 
 <pre lang="erlang">
 %% from sherlweb.erl

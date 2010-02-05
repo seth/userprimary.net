@@ -1,4 +1,4 @@
-In this installment, we'll turn the core sherl_db module into a proper OTP application by creating a sherl gen_server, a supervisor, and a an application resource file.  While the sherl_db module can already be used as a server (the tests in <a href="http://userprimary.net/user/2009/06/18/writing-a-url-shortening-service-in-erlang-part-2/">part 2</a> show that it can be called concurrently), setting up a gen_server will provide a standardized framework for packaging the code as well as a nice abstraction layer should we decide to replace the mnesia-based sherl_db module with something else.
+In this installment, we'll turn the core sherl_db module into a proper OTP application by creating a sherl gen_server, a supervisor, and a an application resource file.  While the sherl_db module can already be used as a server (the tests in <a href="/posts/2009/06/18/writing-a-url-shortening-service-in-erlang-part-2/">part 2</a> show that it can be called concurrently), setting up a gen_server will provide a standardized framework for packaging the code as well as a nice abstraction layer should we decide to replace the mnesia-based sherl_db module with something else.
 
 First we will tackle the gen_server part of the show.  The erlang-mode for Emacs provides a very useful template for creating new gen_servers; even if you don't use Emacs, you might want to steal the template idea as it proves quite useful.  The gen_server will live in a module called simply <code>sherl</code> and in addition to the required gen_server behavior callbacks, exports the following API:
 
@@ -115,10 +115,10 @@ Eshell V5.7.1  (abort with ^G)
 ok
 2> application:start(sherl).
 ok
-3> sherl:encode("http://userprimary.net/user/2009/06/20/writing-a-url-shortening-service-in-erlang-part-3/").
+3> sherl:encode("/posts/2009/06/20/writing-a-url-shortening-service-in-erlang-part-3/").
 {ok,"6"}
 4> sherl:decode("6").
-{ok,"http://userprimary.net/user/2009/06/20/writing-a-url-shortening-service-in-erlang-part-3/"}
+{ok,"/posts/2009/06/20/writing-a-url-shortening-service-in-erlang-part-3/"}
 5> sherl:decode("abc").
 {not_found,"abc"}
 6> gen_server:call(sherl, blah).

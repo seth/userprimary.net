@@ -1,6 +1,6 @@
 Last week Evri launched its public beta.  No password, no sign-up.  You are just a click away from checking out our take on searching less and understanding more: <a href="http://www.evri.com" title="Search less, understand more">http://www.evri.com</a>.
 
-We also have made available what we call "the widget" that allows anyone to get Evri content recommendations on their own website.  If you are reading this on the <a href="http://userprimary.net/user/">User Primary site</a>, you should see a small Evri icon at the bottom of this post.  Click it, and you will get an overlay that will show related articles, people, places, and things.
+We also have made available what we call "the widget" that allows anyone to get Evri content recommendations on their own website.  If you are reading this on the <a href="/">User Primary site</a>, you should see a small Evri icon at the bottom of this post.  Click it, and you will get an overlay that will show related articles, people, places, and things.
 
 Installing this on my Wordpress powered blog was fairly simple.  There are instructions on Evri's <a href="http://www.evri.com/partners-and-bloggers.html">partners and bloggers page</a> but if you are running a recent version of Wordpress, you can install the widget using the admin screens of your blog.  Here's how I installed the widget using Wordpress version 2.6.2.
 

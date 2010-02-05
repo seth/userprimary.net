@@ -119,4 +119,4 @@ The get_code function requires a bit more logic since we need to first check whe
 
 That concludes part 1.  I realize that I haven't yet discussed the layout of the code on disk, how to build the code, nor how to test it.  I will try to work that into one of the follow up posts.
 
-[Update: checkout <a href="http://userprimary.net/user/2009/06/18/writing-a-url-shortening-service-in-erlang-part-2/">part 2</a> which has among other things, an important bug fix to the code presented here]
+[Update: checkout <a href="/posts/2009/06/18/writing-a-url-shortening-service-in-erlang-part-2/">part 2</a> which has among other things, an important bug fix to the code presented here]
