@@ -1,6 +1,8 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
+RewriteRule ^user/comments/feed/? / [G]
+Rewriterule ^user/feed/?$ /feed.atom [R=301]
 RewriteRule ^user/?$ / [R=301]
 RewriteRule ^user/(.*)$ /posts/$1 [R=301]
 </IfModule>
