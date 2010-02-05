@@ -80,7 +80,12 @@ def linked_in_badge
 end
 
 def twitter_badge
-  %[<a href="http://www.twitter.com/sfalcon"><img src="http://twitter-badges.s3.amazonaws.com/follow_me-b.png" alt="Follow sfalcon on Twitter"/></a>]
+  %[<a href="http://www.twitter.com/sfalcon"><img src="http://twitter-badges.s3.amazonaws.com/t_small-a.png" alt="Follow sfalcon on Twitter"/></a>]
+#  %[<a href="http://www.twitter.com/sfalcon"><img src="http://twitter-badges.s3.amazonaws.com/follow_me-b.png" alt="Follow sfalcon on Twitter"/></a>]
+end
+
+def feed_badge
+  %[<a href="/feed.atom" title="actually, it's an atom feed">RSS feed <img src="/images/feed-icon-14x14.png" /></a>]
 end
 
 def meta_tag(name, content)

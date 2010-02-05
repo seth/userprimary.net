@@ -34,6 +34,10 @@
               = nav_link_to_unless_current("Software", "/software/")
             %li
               = nav_link_to_unless_current("Links", "/links/")
+      .column.grid_2
+        #feed_icon
+          %a{ :href => "/feed.atom", :title => "User Primary Atom Feed" }
+            %img.feed_icon{ :src => "/images/feed-icon-14x14.png" }
     #main_row.row
       .column.grid_8
         #main
@@ -65,15 +69,30 @@
             #coord_list
               %ul
                 %li
-                  < seth @ userprimary . net >
+                  email: < seth @ userprimary . net >
                 %li
-                  = twitter_badge
+                  Twitter:
+                  %a{ :href => "http://www.twitter.com/sfalcon" }
+                    \@sfalcon
+                  
                 %li
                   = linked_in_badge
                 %li
-                  I'm
+                  GitHub:
                   %a{ :href => "http://github.com/seth" }
-                    seth on github
+                    seth
+          .column.grid_3
+            #feed_me
+              %p
+                Want to know when I post something new?
+                Subscribe to the
+                %a{ :href => "/feed.atom" }
+                  RSS feed
+                or follow
+                %a{ :href => "http://www.twitter.com/sfalcon" }
+                  me on Twitter
+                = "."
+
         .row
           #copyright.column.grid_12
             = "Copyright 2006 - #{Time.now.year} Seth Falcon"
