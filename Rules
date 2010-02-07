@@ -2,7 +2,7 @@
 
 compile '/' do
   filter :haml
-  layout 'default'
+  layout 'home'
 end
 
 compile '/feed/' do
