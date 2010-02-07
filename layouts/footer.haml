@@ -1,0 +1,41 @@
+#footer_row.row
+  .column.grid_8
+    .row
+      .column.grid_5
+        %h2
+          Coordinates
+    .row
+      .column.grid_2
+        #coord_img
+          %img{ :src => "/images/seth-hood2.jpg", :height => "150px" }
+      .column.grid_3
+        #coord_list
+          %ul
+            %li
+              email: < seth @ userprimary . net >
+            %li
+              Twitter:
+              %a{ :href => "http://www.twitter.com/sfalcon" }
+                \@sfalcon
+              
+            %li
+              = linked_in_badge
+            %li
+              GitHub:
+              %a{ :href => "http://github.com/seth" }
+                seth
+      .column.grid_3
+        #feed_me
+          %p
+            Want to know when I post something new?
+            Subscribe to the
+            %a{ :href => "/feed.atom" }
+              RSS feed
+            or follow
+            %a{ :href => "http://www.twitter.com/sfalcon" }
+              me on Twitter
+            = "."
+
+    .row
+      #copyright.column.grid_12
+        = "Copyright 2006 - #{Time.now.year} Seth Falcon"
