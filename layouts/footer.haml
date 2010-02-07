@@ -1,26 +1,20 @@
 #footer
-  .row
-    .column.grid_12
-      %h2
-        Coordinates
-  .row
-    .column.grid_2
-      #coord_img
-        %img{ :src => "/images/seth-hood2.jpg", :height => "150px" }
-    .column.grid_3
-      = render('/coords/')
-    .column.grid_4
-      #feed_me
-        %p
-          Want to know when I post something new?
-          Subscribe to the
-          %a{ :href => "/feed.atom" }
-            RSS feed
-          or follow
-          %a{ :href => "http://www.twitter.com/sfalcon" }
-            me on Twitter
-          = "."
-  .row
-    .column.grid_10
-      #copyright
-        = "Copyright 2006 - #{Time.now.year} Seth Falcon, all rights reserved."
+  #coord1
+    %h2
+      Coordinates
+    #coord_img
+      %img{ :src => "/images/seth-hood2.jpg", :height => "150px" }
+  #coord_list
+    = render('/coords/')
+  #feed_me
+    %p
+      Want to know when I post something new?
+      Subscribe to the
+      %a{ :href => "/feed.atom" }
+        RSS feed
+      or follow
+      %a{ :href => "http://www.twitter.com/sfalcon" }
+        me on Twitter
+      = "."
+  #copyright
+    = "Copyright 2006 - #{Time.now.year} Seth Falcon, all rights reserved."
