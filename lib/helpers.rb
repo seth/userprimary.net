@@ -122,3 +122,12 @@ def make_excerpt(post)
   excerpt = doc/"#main p"
   excerpt.inner_text[0..250] + "... "
 end
+
+def recent_article_pairs(n)
+  arts = []
+  sa = sorted_articles[0..(n-1)]
+  (n / 2).times do |i|
+    arts << [sa[i], sa[i + 1]]
+  end
+  arts
+end

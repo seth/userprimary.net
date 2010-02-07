@@ -2,18 +2,10 @@
   .column.grid_8
     %h2
       Recent Posts
-    - sorted_articles[0..4].each do |post|
-      #post_summary
-        %h3
-          %a{ :href => post.identifier }
-            = post[:title]
-        %span.tag_list
-          archived
-        = timeago(post)
-        %span.tag_list
-          = " in: " + tags_for(post, :base_url => "/tags/")
-        %p
-          = make_excerpt(post)
-          %span.more_link
-            %a{ :href => post.identifier }
-              more
+- recent_article_pairs(6).each do |pair|
+  .row
+    .column.grid_5
+      = render('/post_summary', :post => pair[0])
+    .column.grid_5
+      = render('/post_summary', :post => pair[1])
+  

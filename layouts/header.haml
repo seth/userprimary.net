@@ -1,18 +1,16 @@
-#header_row.row
-  #header_logo.column.grid_4
+#header
+  #header_logo
     %img{ :src => "/images/userp-logo.png" }
-  .column.grid_5
-    #navlist
-      %ul
-        %li
-          = nav_link_to_unless_current("Home", "/")
-        %li
-          = nav_link_to_unless_current("Archives", "/archives/")
-        %li
-          = nav_link_to_unless_current("Software", "/software/")
-        %li
-          = nav_link_to_unless_current("Links", "/links/")
-  .column.grid_3
-    #feed_icon
-      %a{ :href => "/feed.atom", :title => "User Primary Atom Feed" }
-        %img.feed_icon{ :src => "/images/feed-icon-14x14.png" }
+  #navlist
+    %ul
+      %li
+        = nav_link_to_unless_current("Home", "/")
+      %li
+        = nav_link_to_unless_current("Archives", "/archives/")
+      %li
+        = nav_link_to_unless_current("Software", "/software/")
+      %li
+        = nav_link_to_unless_current("Links", "/links/")
+  #feed_icon
+    %a{ :href => "/feed.atom", :title => "User Primary Atom Feed" }
+      %img.feed_icon{ :src => "/images/feed-icon-14x14.png" }
