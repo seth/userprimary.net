@@ -114,7 +114,7 @@ def openid
 end
 
 def delicious_widget
-  %[<script type="text/javascript" src="http://feeds.delicious.com/v2/js/sethf?title=Delicious%20Bookmarks&icon=m&count=5&sort=date&tags&extended&name"></script>]
+  %[<script type="text/javascript" src="http://feeds.delicious.com/v2/js/sethf?title=Delicious%20Bookmarks&count=5&sort=date&extended&name"></script>]
 end
 
 def make_excerpt(post)
