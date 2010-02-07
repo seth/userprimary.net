@@ -5,20 +5,7 @@
     = render('/header/')
     #main_row.row
       #main
-        - if @item[:kind] == "article"
-          %h2
-            = @item[:title]
         = yield
-        - if @item[:kind] == "article"
-          #post_details
-            %p
-              archived on
-              = Time.parse(@item[:created_at]).strftime("%Y-%m-%d")
-              in
-              = tags_for(@item, :base_url => "/tags/")
-            %p
-              Have a comment?  Drop me an email or tweet, contact
-              details are below.
     = render('/footer/')
             
 

@@ -23,9 +23,9 @@ compile '/posts/' do
   layout 'default'
 end
 
-compile '/posts/*' do
+compile '/posts/200*' do
   filter :rdiscount
-  layout 'default'
+  layout '/post/'
   # this is ugly, but in the conversion from wordpress, the
   # pseudo-markdown has <pre> tags aren getting indented in
   # the generated HTML in a way that indents the formatted
@@ -33,14 +33,19 @@ compile '/posts/*' do
   filter :prefixhack
 end
 
+compile '/posts/*' do
+  filter :rdiscount
+  layout '/post/'
+end
+
 compile '/software/*' do
-  filter :bluecloth
+  filter :rdiscount
   layout 'default'
 end
 
 compile '/links/*' do
   filter :erb
-  filter :bluecloth
+  filter :rdiscount
   layout 'default'
 end
 
