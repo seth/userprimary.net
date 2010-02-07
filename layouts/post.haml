@@ -4,16 +4,17 @@
   %body
     = render('/header/')
     #main
-      %h2
-        = @item[:title]
-      = yield
-      #post_details
-        %p
-          archived on
-          = Time.parse(@item[:created_at]).strftime("%Y-%m-%d")
-          in
-          = tags_for(@item, :base_url => "/tags/")
+      #post
+        %h2
+          = @item[:title]
+        = yield
+        #post_details
           %p
-            Have a comment?  Drop me an email or tweet, contact
-            details are below.
+            archived on
+            = Time.parse(@item[:created_at]).strftime("%Y-%m-%d")
+            in
+            = tags_for(@item, :base_url => "/tags/")
+            %p
+              Have a comment?  Drop me an email or tweet, contact
+              details are below.
     = render('/footer/')
