@@ -2,7 +2,7 @@
   %h2
     Recent Posts
   - recent_article_pairs(6).each do |pair|
-    #prow
+    .prow
       = render('/post_summary', :post => pair[0])
       = render('/post_summary', :post => pair[1])
   
