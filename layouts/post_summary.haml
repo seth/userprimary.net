@@ -1,14 +1,12 @@
 .post_summary
-  %h3
+  %h2
     %a{ :href => post.identifier }
       = post[:title]
-  %span.tag_list
+  .tag_list
     archived
-  = timeago(post)
-  %span.tag_list
+    = timeago(post)
     = " in: " + tags_for(post, :base_url => "/tags/")
   %p
     = make_excerpt(post)
-    %span.more_link
-      %a{ :href => post.identifier }
-        more
+    %a.more_link{ :href => post.identifier }
+      more

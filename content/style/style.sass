@@ -5,7 +5,6 @@
 
 body
   background: #fff
-  font-size: 62.5%
 
 a
   text-decoration: underline
@@ -17,10 +16,6 @@ a
     background: #eeeeee
   img
     border: none
-#orange
-  text-align: center
-  img
-    padding-top: 5px
 
 #header
   float: left
@@ -28,55 +23,52 @@ a
   min-width: 710px
   background: #eeeeee
   padding-bottom: 0
-
-#header_logo
-  float: left
-  padding-right: 0
-  margin-right: 0 20px 0 0
   img
-    margin-top: 0
-
-#navlist
-  float: left
-  padding: 5px 5px 0 5px
-  margin: 5px 5px 0 100px
-  font-size: 15px
-  border-bottom: 1px dotted
-
-  li
-    list-style: none
-    margin: 0 0 0.4em 0
-    display: inline
     float: left
+    display: block
+    padding-right: 0
+    margin: 0 20px 0 0
 
-    a, span
-      padding: 0.3em 0.5em
-      padding-bottom: 0.3em
-      margin-left: 0.3em
-      margin-bottom: 0.2em
-      text-decoration: none
-      strong.bracket
-        visibility: hidden
-
-      &:link
-        color: #5e5e5e
-      &:visited
-        color: #5e5e5e
-
-      &:hover
+  #navlist
+    float: left
+    padding: 5px 5px 0 5px
+    margin: 5px 5px 0 100px
+    font-size: 15px
+    border-bottom: 1px dotted
+  
+    li
+      list-style: none
+      margin: 0 0 0.4em 0
+      display: inline
+      float: left
+  
+      a, span
+        padding: 0.3em 0.5em
+        padding-bottom: 0.3em
+        margin-left: 0.3em
+        margin-bottom: 0.2em
+        text-decoration: none
+        strong.bracket
+          visibility: hidden
+  
+        &:link
+          color: #5e5e5e
+        &:visited
+          color: #5e5e5e
+        &:hover
+          strong.bracket
+            visibility: visible
+            color: #5e5e5e
+  
+      a.current, span.current
         strong.bracket
           visibility: visible
-          color: #5e5e5e
-
-    a.current, span.current
-      strong.bracket
-        visibility: visible
-        color: #000
-
-#feed_icon
-  float: right
-  padding-top: 0.3em
-  text-align: right
+          color: #000
+  
+  #feed_icon
+    float: right
+    padding-top: 0.3em
+    text-align: right
 
 .content
   padding: 1em 2em 1em 2em
@@ -167,7 +159,7 @@ a
   color: #333
   margin-bottom: 1em
   padding-right: 30px
-  h3
+  h2
     font-size: 18px
     line-height: 1
     margin-bottom: 0.3em
@@ -179,13 +171,13 @@ a
     font-size: 1.1em
     color: gray
 
-  span.tag_list
+  .tag_list
     font-size: 1.1em
     color: gray
 
   p
     margin-top: 1em
-    span.more_link
+    a.more_link
       padding-left: 1em
       font-size: 0.75em
       color: gray
