@@ -12,7 +12,7 @@
     %h2
       Posts by Month
       - get_archive_items.each do |k|
-        %h3
+        %h3.archive_year
           = k[:year]
         %ul.posts
           - k[:items].each do |a|
