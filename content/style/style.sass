@@ -6,6 +6,18 @@
 body
   background: #fff
 
+pre
+  margin: 10px 0
+  white-space: pre
+  background: #EEEEEE
+  padding: 10px
+  font: 15px "Panic Sans", "Bitstream Vera Sans Mono", Consolas, monospace
+  line-height: 1.1
+  overflow: auto
+
+code, tt
+  font: 12px 'andale mono', 'lucida console', monospace
+
 a
   text-decoration: underline
   &:link
@@ -16,6 +28,16 @@ a
     background: #eeeeee
   img
     border: none
+
+h1
+  font-size: 22px
+  margin-bottom: 20px
+
+h2
+  color: #5e5e5e
+  font-size: 22px
+  line-height: 1
+  margin-bottom: 0.75em
 
 #header
   float: left
@@ -75,156 +97,108 @@ a
 
 #main
   clear: both
+  margin: 0 auto
   background: #dddddd
   min-height: 500px
   color: #5e5e5e
-  img.feed_icon
-    padding-left: 1em
-  h1 
-    font-size: 3em
-    line-height: 1
-    margin-bottom: 0.5em
-
-  h2
-    font-size: 2em
-    line-height: 1
-    margin-bottom: 0.75em
-
-  h3
-    font-size: 1.5em
-    line-height: 1
-    margin-bottom: 1em
-
-  h4
-    font-size: 1.2em
-    line-height: 1.25
-    margin-bottom: 1.25em
-
-  h5
-    font-size: 1em
-    margin-bottom: 1.5em
-
-  p 
-    margin: 0 0 1.5em 0
-    font-size: 1.7em
-    line-height: 1.2
-
-  pre
-    margin: 1.5em 0
-    white-space: pre
-    background: #EEEEEE
-    padding: 0.75em
-    font: 1.5em "Panic Sans", "Bitstream Vera Sans Mono", Consolas, monospace
-    line-height: 1.5
-    overflow: auto
-
-  code, tt
-    font: 1em 'andale mono', 'lucida console', monospace
-
-  ul 
-    margin: 20px
-
-  li
-    font-size: 1.5em
-    list-style-type: square
-
-  ul.posts
-    li
-      list-style: none
 
 #post_details
   padding-top: 2em
   padding-bottom: 2em
   p
-    font-size: 1.2em
+    font-size: 14px
     margin-bottom: 0.5em
     line-height: 1
 
 #summaries
-  padding: 1em 2em 1em 2em
+  padding: 1em 2em
   float: left
   background: #dddddd
+  h1
+    font-size: 22px
+    margin-bottom: 20px
+    text-align: center
+  .post_summary
+    overflow: hidden
+    width: 370px
+    float: left
+    color: #333
+    margin-bottom: 1em
+    padding: 0 15px
+    h2
+      font-size: 18px
+      line-height: 1
+      margin-bottom: 0.3em
+      a
+        text-decoration: none      
+        color: #333
+    abbr.timeago
+      font-size: 12px
+      color: gray
+    .tag_list
+      font-size: 12px
+      color: gray
+    p
+      margin-top: 1em
+      margin-bottom: 1em
+      a.more_link
+        padding-left: 1em
+        font-size: 0.75em
+        color: gray
 
 .prow
   background: #dddddd
   float: left
-  width: 100%
+  margin: 0 auto
   overflow: hidden
   min-width: 800px
 
-.post_summary
-  overflow: hidden
-  width: 370px
-  float: left
-  color: #333
-  margin-bottom: 1em
-  padding-right: 30px
-  h2
-    font-size: 18px
-    line-height: 1
-    margin-bottom: 0.3em
-    a
-      text-decoration: none      
-      color: #333
-
-  abbr.timeago
-    font-size: 1.1em
-    color: gray
-
-  .tag_list
-    font-size: 1.1em
-    color: gray
-
-  p
-    margin-top: 1em
-    a.more_link
-      padding-left: 1em
-      font-size: 0.75em
-      color: gray
 
 #post
-  width: 600px
+  width: 700px
+  margin: 0 auto
   h1
-    font-size: 2em
+    font-size: 24px
+    margin-bottom: 20px
 
 #footer
   clear: both
   padding: 1em 0 2em 0
   background: #bfbfbf
   h2
-    font-size: 2em
+    color: #5e5e5e
+    font-size: 22px
     line-height: 1
     margin-bottom: 0.75em
-
-#coord1
-  float: left
-  padding-left: 2em
-
-#coord_img
-  float: left
-  padding: 0.5em
-  background: #dddddd
-
-#coord_list
-  float: left
-  font-size: 15px
-  padding-top: 40px
-  padding-left: 1em
-  li
-    list-style: none
-    margin-bottom: 0.5em
-
-#feed_me
-  float: left
-  font-size: 15px
-  padding-top: 40px
-  padding-left: 30px
-  width: 300px
-#copyright
-  clear: both
-  width: 960px
-  margin-top: 6em
-  text-align: center
+  #coord1
+    float: left
+    padding-left: 2em
+  
+  #coord_img
+    float: left
+    padding: 0.5em
+    background: #dddddd
+  
+  #coord_list
+    float: left
+    font-size: 15px
+    padding-top: 40px
+    padding-left: 1em
+    li
+      list-style: none
+      margin-bottom: 0.5em
+  
+  #feed_me
+    float: left
+    font-size: 15px
+    padding-top: 40px
+    padding-left: 30px
+    width: 300px
+  #copyright
+    font-size: 12px
+    clear: both
+    margin-top: 6em
+    text-align: center
 
 #delicious-posts-sethf
   h2
