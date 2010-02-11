@@ -3,6 +3,8 @@
     Recent Posts
   - recent_article_pairs(6).each do |pair|
     .prow
-      = render('/post_summary', :post => pair[0])
-      = render('/post_summary', :post => pair[1])
+      .left
+        = render('/post_summary', :post => pair[0])
+      .right
+        = render('/post_summary', :post => pair[1])
   
