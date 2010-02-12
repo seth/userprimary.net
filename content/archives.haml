@@ -1,10 +1,8 @@
 #summaries
-  %h1<
-    Archived posts
+  %h1 Archived posts
   .prow_narrow
     .left
-      %h2<
-        Posts by topic
+      %h2 Posts by topic
       %ul.posts
         - get_tag_items.sort {|a, b| a[:tag_name] <=> b[:tag_name] }.each do |t|
           %li<
@@ -13,15 +11,13 @@
             %span.tag_count><
               = "(" + t[:tag_count] + ")"
     .right
-      %h2<
-        Posts by month
-        - get_archive_items.each do |k|
-          %h3.archive_year<
-            = k[:year]
-          %ul.posts
-            - k[:items].each do |a|
-              %li<
-                %a{ :href => a.identifier }><
-                  = a[:month]
+      %h2 Posts by month
+      - get_archive_items.each do |k|
+        %h3.archive_year= k[:year]
+        %ul.posts
+          - k[:items].each do |a|
+            %li<
+              %a{ :href => a.identifier }><
+                = a[:month]
 
 

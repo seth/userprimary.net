@@ -2,7 +2,7 @@
 
 %ul
   - @item.children.sort {|a, b| a[:tag_name] <=> b[:tag_name] }.each do |t|
-    %li
-      %a{ :href => t.identifier, :title => "posts tagged #{t[:tag_name]}" }
+    %li<
+      %a{ :href => t.identifier, :title => "posts tagged #{t[:tag_name]}" }><
         = t[:tag_name]
       = "(" + t[:tag_count] + ")"
