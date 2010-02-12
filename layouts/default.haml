@@ -3,8 +3,9 @@
   = render('/sitehead')
   %body
     = render('/header/')
-    #main.content
-      = yield
+    #main
+      #content
+        = yield
     = render('/footer/')
             
 
