@@ -15,7 +15,7 @@ end
 
 compile '/archives/' do
   filter :haml
-  layout 'default'
+  layout '/home/'
 end
 
 compile '/posts/' do

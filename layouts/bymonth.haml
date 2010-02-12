@@ -1,8 +1,7 @@
-%h1
-  = @year_month + ":"
-  = @posts.count.to_s + " posts"
+%h1<
+  = @year_month
 %ul
   - @posts.each do |p|
-    %li
-      %a{ :href => p.identifier }
+    %li<
+      %a{ :href => p.identifier }><
         = p[:title]
