@@ -126,7 +126,7 @@ end
 def recent_article_pairs(n)
   arts = []
   sa = sorted_articles[0..(n-1)]
-  (n / 2).times do |i|
+  (0..(n - 1)).select { |i| i % 2 == 0 }.each do |i|
     arts << [sa[i], sa[i + 1]]
   end
   arts
