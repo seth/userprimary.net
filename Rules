@@ -80,7 +80,7 @@ route '/style/*' do
 end
 
 layout '/tag/', :haml
-layout '*', :haml
+layout '*', :haml, :ugly => true
 
 compile '*' do
   filter :erb
