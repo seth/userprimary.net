@@ -35,83 +35,82 @@ The first directive will match resources that start with "/http:" and dispatch t
 
 Now we'll implement minimal versions of shorten_resource and lookup_resource.  You can use the default sherlweb_resource module as a template and replace the to_html function as follows:
 
-<pre lang="erlang">
-%% shorten_resource.erl
-%% module boilerplate excluded
 
-to_html(ReqData, State) ->
-    "/" ++ LongUrl = wrq:raw_path(ReqData),
-    ShortUrl = make_short_url(LongUrl, ReqData),
-    {["<html><body><a href=\"", ShortUrl, "\">", ShortUrl,
-      "</a></body></html>"],
-     ReqData, State}.
+    %% shorten_resource.erl
+    %% module boilerplate excluded
+    
+    to_html(ReqData, State) ->
+        "/" ++ LongUrl = wrq:raw_path(ReqData),
+        ShortUrl = make_short_url(LongUrl, ReqData),
+        {["<html><body><a href=\"", ShortUrl, "\">", ShortUrl,
+          "</a></body></html>"],
+         ReqData, State}.
+    
+    make_short_url(LongUrl, ReqData) ->
+        {ok, Code} = sherl:encode(LongUrl),
+        Host = wrq:get_req_header("host", ReqData),
+        "http://" ++ Host ++ "/" ++ Code.
 
-make_short_url(LongUrl, ReqData) ->
-    {ok, Code} = sherl:encode(LongUrl),
-    Host = wrq:get_req_header("host", ReqData),
-    "http://" ++ Host ++ "/" ++ Code.
-</pre>
 
-<pre lang="erlang">
-%% lookup_resource.erl
-%% module boilerplate excluded
+    %% lookup_resource.erl
+    %% module boilerplate excluded
+    
+    to_html(ReqData, State) ->
+        {ok, LongUrl} = sherl:decode(wrq:disp_path(ReqData)),
+        {["<html><body><a href=\"", LongUrl, "\">", LongUrl,
+          "</a></body></html>"],
+         ReqData, State}.
 
-to_html(ReqData, State) ->
-    {ok, LongUrl} = sherl:decode(wrq:disp_path(ReqData)),
-    {["<html><body><a href=\"", LongUrl, "\">", LongUrl,
-      "</a></body></html>"],
-     ReqData, State}.
-</pre>
 
 In addition, we need to update sherlweb.app by removing sherlweb_resource and adding the above two modules (also delete sherlweb_resource.erl from the src directory).  Then modify sherlweb.erl so that the sherl application implemented in <a href="/posts/2009/06/20/writing-a-url-shortening-service-in-erlang-part-3/">Part 3</a> will be started as part of the web app initialization.  The modified sherlweb:start/0 looks like this:
 
-<pre lang="erlang">
-%% from sherlweb.erl
-start() ->
-    sherlweb_deps:ensure(),
-    ensure_started(crypto),
-    ensure_started(webmachine),
-    ensure_started(mnesia),
-    ensure_started(sherl),
-    application:start(sherlweb).
-</pre>
+
+    %% from sherlweb.erl
+    start() ->
+        sherlweb_deps:ensure(),
+        ensure_started(crypto),
+        ensure_started(webmachine),
+        ensure_started(mnesia),
+        ensure_started(sherl),
+        application:start(sherlweb).
+
 
 At this point, rebuilding and restarting the project should allow you to test the basic API and see a very rudimentary HTML-based shortening service.  To refine the service, we will iterate on the lookup_resource module so that it will return a 301 redirect for a valid short URL and a 404 otherwise.  To do that we will implement the resource_exists, previously_existed, and moved_permanently callbacks.  The new version of lookup_resource.erl looks like this:
 
-<pre lang="erlang">
--module(lookup_resource).
--export([init/1, moved_permanently/2, previously_existed/2,
-         resource_exists/2]).
 
--include_lib("webmachine/include/webmachine.hrl").
+    -module(lookup_resource).
+    -export([init/1, moved_permanently/2, previously_existed/2,
+             resource_exists/2]).
+    
+    -include_lib("webmachine/include/webmachine.hrl").
+    
+    -record(sherl, {long_url = undefined}).
+    
+    init([]) -> {ok, #sherl{}}.
+    
+    resource_exists(ReqData, State) ->
+        {Status, LongUrl} = sherl:decode(wrq:disp_path(ReqData)),
+        case Status of
+            ok -> {false, ReqData, State#sherl{long_url = LongUrl}};
+            _ -> {false, ReqData, State}
+        end.
+    
+    previously_existed(ReqData, State) ->
+        case State#sherl.long_url of 
+            undefined ->
+                {false, ReqData, State};
+            _ ->
+                {true, ReqData, State}
+        end.
+    
+    moved_permanently(ReqData, State) ->
+        case State#sherl.long_url of 
+            undefined ->
+                {false, ReqData, State};
+            LongUrl ->
+                {{true, LongUrl}, ReqData, State}
+        end.
 
--record(sherl, {long_url = undefined}).
-
-init([]) -> {ok, #sherl{}}.
-
-resource_exists(ReqData, State) ->
-    {Status, LongUrl} = sherl:decode(wrq:disp_path(ReqData)),
-    case Status of
-        ok -> {false, ReqData, State#sherl{long_url = LongUrl}};
-        _ -> {false, ReqData, State}
-    end.
-
-previously_existed(ReqData, State) ->
-    case State#sherl.long_url of 
-        undefined ->
-            {false, ReqData, State};
-        _ ->
-            {true, ReqData, State}
-    end.
-
-moved_permanently(ReqData, State) ->
-    case State#sherl.long_url of 
-        undefined ->
-            {false, ReqData, State};
-        LongUrl ->
-            {{true, LongUrl}, ReqData, State}
-    end.
-</pre>
 
 Based on the flowchart, the resource_exists function will be called first.  It looks up the short code using sherl:decode/1 and updates the resource state record with the long URL if it is found.  The resource_exists function always returns false since we never want to return content from this resource.  We could optimize this a bit and return 404 without further decision function processing in the case that we don't have a long URL for the requested short code.  Implementing this short circuit is left as an exercise for the reader.  Next the flow will call previously_existed which returns true if we found a long URL matching the requested short code and false otherwise.  When previously_existed returns false, the server responds with a 404.  When it returns true, the flow calls moved_permanently and webmachine generates a 301 response.
 
