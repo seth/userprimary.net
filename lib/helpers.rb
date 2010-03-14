@@ -117,6 +117,21 @@ def delicious_widget
   %[<script type="text/javascript" src="http://feeds.delicious.com/v2/js/sethf?title=Delicious%20Bookmarks&count=5&sort=date&extended&name"></script>]
 end
 
+def ga_tracking
+  script = <<EOF
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-15243104-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+EOF
+  script
+end
+
 def make_excerpt(post)
   doc = Hpricot(post.reps.first.content_at_snapshot(:last))
   excerpt = doc/"#main p"
