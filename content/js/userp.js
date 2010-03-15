@@ -7,3 +7,5 @@ $('document').ready(function () {
     $('pre').corner("8px")
     $('abbr.timeago').timeago()
 })
+
+var disqus_developer = <%= disqus_dev_mode? %>; 

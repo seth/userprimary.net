@@ -14,7 +14,7 @@
             = Time.parse(@item[:created_at]).strftime("%Y-%m-%d")
             in
             = tags_for(@item, :base_url => "/tags/")
-            %p
-              Have a comment?  Drop me an email or tweet, contact
-              details are below.
+          #disqus_thread
+          = disqus_embed
+
     = render('/footer/')

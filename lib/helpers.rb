@@ -132,6 +132,25 @@ EOF
   script
 end
 
+def disqus_dev_mode?
+  File.exist?("DEV_MODE") ? 1 : 0
+end
+
+def disqus_embed
+  embed = <<EOF
+  <script type="text/javascript">
+  (function() {
+   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+   dsq.src = 'http://userprimary.disqus.com/embed.js';
+   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=userprimary">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+EOF
+  embed
+end
+
 def make_excerpt(post)
   doc = Hpricot(post.reps.first.content_at_snapshot(:last))
   excerpt = doc/"#main p"

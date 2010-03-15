@@ -58,6 +58,10 @@ compile '/style/style/' do
     filter :sass
 end
 
+compile '/js/*' do
+  filter :erb
+end
+
 compile '/style/*' do
   nil
 end
@@ -72,6 +76,10 @@ end
 
 route '/style/*' do
   item.identifier.chop + ".css"
+end
+
+route '/js/*' do
+  item.identifier.chop + ".js"
 end
 
 layout '/tag/', :haml
