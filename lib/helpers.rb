@@ -66,7 +66,7 @@ def feed_link
   %[<link rel="alternate" type="#{ct}" title="#{title}" href="#{url}"></link>]
 end
 ## %[<link rel='index' title='User Primary' href='http://userprimary.net/user' />]
-  
+
 def linked_in_badge1
   %[<a href="http://www.linkedin.com/in/sethfalcon" >
           <img src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x25.png" width="160" height="25" border="0" alt="View Seth Falcon's profile on LinkedIn">
@@ -164,4 +164,58 @@ def recent_article_pairs(n)
     arts << [sa[i], sa[i + 1]]
   end
   arts
+end
+
+def add_missing_info
+  items.each do |item|
+    if item[:file]
+      # nanoc3 >= 3.1 will have this feature, add for older versions
+      item[:extension] ||= item[:file].path.match(/\..*$/)[0]
+    end
+  end
+end
+
+def create_tags_pages
+  tags = Hash.new { |h, k| h[k] = 0 }
+  items.each do |item|
+    if item[:kind] == "article"
+      if item[:tags]
+        item[:tags].each { |t| tags[t] += 1 }
+      end
+    end
+  end
+
+  tags.each do |tag, count|
+    content = %[render('tag', :tag_name => "#{tag}", :tag_count => "#{count}")]
+    items << Nanoc3::Item.new(content,
+                              { :title => "#{tag}",
+                                :tag_name => tag,
+                                :tag_count => count.to_s
+                              },
+                              "/tags/#{tag}/")
+  end
+end
+
+def create_month_archives
+  bymonth = Hash.new { |h, k| h[k] = [] }
+  items.each do |item|
+    if item[:kind] == "article"
+      t = Time.parse(item[:created_at])
+      bymonth[t.strftime("%Y-%B")] << item
+    end
+  end
+
+  bymonth.each do |year_month, posts|
+    posts = posts.sort_by { |p| Time.parse(p[:created_at]) }.reverse
+    most_recent = Time.parse(posts.first[:created_at])
+    items << Nanoc3::Item.new(render('bymonth', :posts => posts,
+                                     :year_month => year_month),
+                              { :title => "#{year_month}",
+                                :post_count => posts.count,
+                                :most_recent => most_recent,
+                                :month => most_recent.strftime("%B"),
+                                :year => most_recent.strftime("%Y")
+                              },
+                              "/archives/#{year_month}/")
+  end
 end
