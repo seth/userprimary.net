@@ -186,7 +186,7 @@ def create_tags_pages
   end
 
   tags.each do |tag, count|
-    content = %[render('tag', :tag_name => "#{tag}", :tag_count => "#{count}")]
+    content = %[= render('tag', :tag_name => "#{tag}", :tag_count => "#{count}")]
     items << Nanoc3::Item.new(content,
                               { :title => "#{tag}",
                                 :tag_name => tag,
