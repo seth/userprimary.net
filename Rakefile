@@ -46,3 +46,22 @@ end
 task :test1, [:a1] do |t, args|
   puts "a1 is #{args.a1}"
 end
+
+desc "new post template, call with [name-of-post]"
+task :create_post, [:name] do |t, args|
+  name = args.name
+  d = Time.now.to_s
+  attrs = <<-EOF
+  --- 
+  title: #{name}
+  kind: article
+  created_at: #{Time.now.to_s}
+  tags:
+  EOF
+  attrs = attrs.gsub(/^ +/, "")
+  d = Time.now.strftime("%Y %m %d").split()
+  path = "content/posts/#{d[0]}/#{d[1]}/#{d[2]}"
+  FileUtils.mkdir_p(path)
+  open("#{path}/#{name}.yaml", "w") { |f| f.write(attrs) }
+  system("touch #{path}/#{name}.markdown")
+end
