@@ -18,7 +18,8 @@ def sorted_items_with_tag(tag_name)
 end
 
 def get_tag_items
-  @items.find { |i| i.identifier == "/tags/" }.children
+  tag_items = @items.find { |i| i.identifier == "/tags/" }.children
+  tag_items.sort { |a, b| a[:tag_name].downcase <=> b[:tag_name].downcase }
 end
 
 def get_archive_items

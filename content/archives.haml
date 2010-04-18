@@ -4,7 +4,7 @@
     .left
       %h2 Posts by topic
       %ul.posts
-        - get_tag_items.sort {|a, b| a[:tag_name] <=> b[:tag_name] }.each do |t|
+        - get_tag_items.each do |t|
           %li<
             %a{ :href => t.identifier, :title => "posts tagged #{t[:tag_name]}" }><
               = t[:tag_name]
