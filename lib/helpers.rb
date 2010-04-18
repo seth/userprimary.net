@@ -13,6 +13,10 @@ def sort_posts_by_date(posts)
   posts.sort_by { |p| Time.parse(p[:created_at]) }.reverse
 end
 
+def sorted_items_with_tag(tag_name)
+  sort_posts_by_date(items_with_tag(tag_name))
+end
+
 def get_tag_items
   @items.find { |i| i.identifier == "/tags/" }.children
 end
@@ -137,6 +141,12 @@ def disqus_dev_mode?
 end
 
 def disqus_embed
+  embed = <<EOF
+<p>Comments are temporarily disabled.  If you'd like to share your thoughts, send me a note on Twitter (@sfalcon) or send me an email (contact details below).</p>
+EOF
+end
+
+def disqus_embed_save
   embed = <<EOF
   <script type="text/javascript">
   (function() {

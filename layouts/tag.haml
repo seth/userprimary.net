@@ -2,7 +2,7 @@
   = @tag_name
   
 %ul
-  - items_with_tag(@tag_name).reverse.each do |p|
+  - sorted_items_with_tag(@tag_name).each do |p|
     %li<
       %a{ :href => p.identifier }><
         = p[:title]
