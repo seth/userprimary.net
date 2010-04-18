@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'yaml'
+require "irb"
+require File.join(File.dirname(__FILE__), "disqus")
+
+config = YAML.load_file("disqus-key.yaml")
+API_KEY = config["key"]
+FORUM_ID = config["fid"]
+
+@blog = Disqus.new(API_KEY, FORUM_ID)
+
+puts "Blog object is @blog"
+puts @blog.inspect
+IRB.start
