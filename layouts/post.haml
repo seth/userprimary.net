@@ -14,7 +14,6 @@
             = Time.parse(@item[:created_at]).strftime("%Y-%m-%d")
             in
             = tags_for(@item, :base_url => "/tags/")
-          #disqus_thread
           = disqus_embed
 
     = render('/footer/')
