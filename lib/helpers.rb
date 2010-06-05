@@ -234,3 +234,11 @@ def create_month_archives
                               "/archives/#{year_month}/")
   end
 end
+
+def page_title
+  title = "User Primary"
+  if @item.identifier != "/"
+    title = @item[:title] + " - " + title
+  end
+  title
+end
