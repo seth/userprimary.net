@@ -1,3 +1,8 @@
+**Update Aug-2010**: This post is now a bit out of date.  If you are interested
+in getting started with Homebrew, checkout [my updated post][1]
+
+[1]: /posts/2010/08/19/installing-homebrew-for-OSX/
+
 <a href="http://github.com/mxcl/homebrew">homebrew</a> is a package management system for OS X that allows you to install various open source packages much like macports. Homebrew claims to simplify some aspects of the package mangement process, for example, by putting packages in /usr/local/Cellar/PKG and symlinking into /usr/local rather than relying on a custom package database.  Another advantage is that it aims to reuse any software already installed on your Mac instead of taking a self-contained approach, like macports, where you end up needing a custom version many libraries you already have (the duplication of which can sometimes come back to bite you).<p /> Anyhow, I&#39;m just installing it now to give it a shot.  Here&#39;s how I installed it using git archive.  I thought this two liner was worth sharing:
 
 <pre lang="bash">
