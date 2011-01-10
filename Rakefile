@@ -62,6 +62,5 @@ task :create_post, [:name] do |t, args|
   d = Time.now.strftime("%Y %m %d").split()
   path = "content/posts/#{d[0]}/#{d[1]}/#{d[2]}"
   FileUtils.mkdir_p(path)
-  open("#{path}/#{name}.yaml", "w") { |f| f.write(attrs) }
-  system("touch #{path}/#{name}.markdown")
+  open("#{path}/#{name}.md", "w") { |f| f.write(attrs) }
 end
