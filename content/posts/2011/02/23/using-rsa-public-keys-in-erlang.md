@@ -80,5 +80,5 @@ at which point happiness ensues and I get my badge (one of many, but
 the first one for Erlang).
 
 <a href="http://www.nerdmeritbadges.com/products/octocat">
-<img src="/uploads/2011/02/open_source_contrib_badge.png" />
+<img src="/images/posts/2011/open_source_contrib_badge.png" />
 </a>
