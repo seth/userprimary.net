@@ -65,7 +65,7 @@ def javascript(name)
 end
 
 def feed_link
-  url = "http://userprimary.net/user/feed.atom"
+  url = "http://userprimary.net/feed.atom"
   ct = "application/atom+xml"
   title = "User Primary"
   %[<link rel="alternate" type="#{ct}" title="#{title}" href="#{url}"></link>]
