@@ -134,8 +134,10 @@ could be improved, please drop me a note.
 
 ## You can ej too ##
 
-ej is on GitHub at [https://github.com/seth/ej], the current stable
-release tag is 0.0.2. You can read the [README][] file if you like.
+ej is on GitHub at
+[https://github.com/seth/ej](https://github.com/seth/ej), the current
+stable release tag is 0.0.2. You can read the [README][] file if you
+like.
 
 [README]: https://github.com/seth/ej/blob/master/README.org
 
