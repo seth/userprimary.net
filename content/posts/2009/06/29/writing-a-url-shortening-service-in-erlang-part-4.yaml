@@ -5,7 +5,7 @@ wordpress_id: 225
 title: Writing a URL Shortening Service in Erlang, Part 4
 tags: 
 - programming
-- Erlang
+- erlang
 - couchdb
 - webmachine
 - common_test
