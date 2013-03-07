@@ -4,3 +4,7 @@ assets/papers
 assets/software
 assets/uploads
 logs
+/.bundle
+/.sass-cache
+/bin
+/crash.log

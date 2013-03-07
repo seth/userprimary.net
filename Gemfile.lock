@@ -1,0 +1,26 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    builder (3.1.4)
+    colored (1.2)
+    cri (2.3.0)
+      colored (>= 1.2)
+    haml (3.0.25)
+    hpricot (0.8.6)
+    nanoc (3.6.1)
+      cri (~> 2.3)
+    rake (10.0.3)
+    rdiscount (1.6.8)
+    sass (3.2.6)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  builder
+  haml
+  hpricot
+  nanoc
+  rake
+  rdiscount
+  sass

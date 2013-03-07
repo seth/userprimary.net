@@ -6,7 +6,7 @@ require 'fsevent'
 class NanocCompiler < FSEvent
   def on_change(directories)
     puts "Detected change in: #{directories.inspect}"
-    system "nanoc3 compile"
+    system "bin/nanoc compile"
   end
 
   def start

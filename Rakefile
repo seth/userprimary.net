@@ -1,5 +1,5 @@
-require 'rubygems'
-require 'nanoc3/tasks'
+require "rubygems"
+require 'nanoc/tasks'
 require 'yaml'
 require 'fileutils'
 
@@ -12,7 +12,7 @@ end
 
 desc "compile"
 task :compile do
-  system "nanoc3 co"
+  system "bin/nanoc compile"
 end
 
 desc "Build userprimary.net"
