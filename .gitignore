@@ -8,3 +8,4 @@ logs
 /.sass-cache
 /bin
 /crash.log
+/deploy.yaml
