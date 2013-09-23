@@ -114,8 +114,8 @@ def site_meta_tags
 end
 
 def openid
-  %[<link rel="openid.server" href="http://www.myopenid.com/server" />
-<link rel="openid.delegate" href="http://seth.falcon.myopenid.com" />]
+  %[<link rel="openid2.provider" href="https://www.google.com/accounts/o8/ud?source=profiles" />
+<link rel="openid2.local_id" href="https://plus.google.com/u/2/106104193810435376861" />]
 end
 
 def delicious_widget
