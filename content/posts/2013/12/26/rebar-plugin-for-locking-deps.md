@@ -26,7 +26,7 @@ if a third party dep doesn't provide a tag. Generating a
 consisting of many of your own repos. If you treat the master branch
 as shippable, then rather than tagging each subproject and updating
 `rebar.config` throughout your project's dependency chain, you can
-simplify run `get-deps` (without the lock file) and re-lock at the
+run `get-deps` (without the lock file), `compile`, and re-lock at the
 latest versions throughout your project repositories.
 
 The reproducibility of builds when using `lock-deps` depends on the
@@ -61,6 +61,8 @@ Install the plugin in your project by adding the following to your
 To test it out do:
 
     rebar get-deps
+    # the plugin has to be compiled so you can use it
+    rebar compile
     rebar lock-deps
 
 If you'd like to take a look at a project that uses the plugin, take a
